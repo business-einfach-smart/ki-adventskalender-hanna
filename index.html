@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- =====================================================================
+     HIER ÄNDERN: Preis und Checkout-Link
+     preis:        nur die Zahl, zum Beispiel "37" oder "39"
+     checkoutLink: den alfima-Checkout-Link zwischen die Anführungszeichen
+     Solange checkoutLink leer ist, springen die Kauf-Buttons zum Angebot.
+     ===================================================================== -->
+<script>
+  window.KALENDER = {
+    preis: "37",
+    checkoutLink: ""
+  };
+</script>
+
+<title>KI-Adventskalender 2026 · 24 KI-Hacks zum Auspacken · Hanna Marzian</title>
+<meta name="description" content="24 Türchen für Claude und ChatGPT: jeden Morgen ein kurzes Video und ein Werkzeug, das du in zehn Minuten ausprobierst. Tag 0 startet sofort nach dem Kauf." />
+<meta name="color-scheme" content="light" />
+<meta name="theme-color" content="#FFF4E7" />
+<!-- Link-Vorschau für WhatsApp, Instagram und Co. Läuft die Seite unter einer anderen Adresse, hier die Adresse anpassen. -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="de_DE" />
+<meta property="og:title" content="KI-Adventskalender 2026 · 24 KI-Hacks zum Auspacken" />
+<meta property="og:description" content="Vom ersten Prompt bis zum eigenen KI-System: 24 Türchen für Claude und ChatGPT mit Hanna Marzian." />
+<meta property="og:url" content="https://ki-adventskalender-hanna.netlify.app/" />
+<meta property="og:image" content="https://ki-adventskalender-hanna.netlify.app/images/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+<link rel="preload" href="fonts/bebas-neue-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="fonts/montserrat-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="fonts/fonts.css" />
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  /* Markenfarben und Schriften aus dem Brandbook „KI Hacks“ (Version 2.0, November 2026) */
+  :root {
+    --orange: #FF751D;
+    --coral: #FF3F63;
+    --pink: #F50791;
+    --choc: #482014;
+    --choc-deep: #2D130B;
+    --gold: #E9AC4C;
+    --gold-soft: #F3C57A;
+    --cream: #FFF4E7;
+    --cream-2: #FBEAD8;
+    --paper: #FFFAF4;
+    --orange-ink: #B8410F;   /* dunkleres Orange für kleine Schrift auf Creme, damit sie gut lesbar bleibt */
+    --ink: #482014;
+    --ink-soft: #6E4A3C;
+    --line: rgba(72, 32, 20, 0.14);
+    --gA: linear-gradient(120deg, #FF751D 0%, #FF3F63 55%, #F50791 100%);
+    --head: 'Bebas Neue', Impact, 'Arial Narrow', sans-serif;
+    --body: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --acc: 'Cormorant Garamond', Georgia, serif;
+    --radius: 18px;
+    color-scheme: light;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--cream); color: var(--ink);
+    font: 400 17px/1.65 var(--body);
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+  p { margin: 0 0 1em; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 22px; position: relative; }
+  .narrow { max-width: 860px; }
+  @media (min-width: 900px) { .wrap { padding: 0 48px; } }
+  section { padding: clamp(72px, 10vw, 124px) 0; position: relative; }
+
+  h1, h2, h3 {
+    font-family: var(--head); font-weight: 400; text-transform: uppercase;
+    letter-spacing: 0.01em; line-height: 0.95; margin: 0; text-wrap: balance;
+  }
+  h1 { font-size: clamp(60px, 10.4vw, 124px); line-height: 0.88; }
+  h2 { font-size: clamp(44px, 6.4vw, 78px); }
+  h3 { font-size: clamp(26px, 2.6vw, 30px); line-height: 1; }
+  .center { text-align: center; }
+
+  .eyebrow {
+    font: 700 12px/1.4 var(--body); letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--orange-ink); margin: 0 0 18px;
+  }
+  .acc {
+    font-family: var(--acc); font-style: italic; font-weight: 600;
+    font-size: clamp(25px, 3vw, 36px); line-height: 1.15; color: var(--orange-ink); margin: 0;
+  }
+  .swoosh { display: block; width: min(330px, 78%); height: 14px; margin-top: 4px; }
+  .swoosh path { fill: none; stroke: var(--gold); stroke-width: 2; stroke-linecap: round; }
+  .center .swoosh { margin-left: auto; margin-right: auto; }
+
+  .btn {
+    display: inline-block; text-align: center; white-space: nowrap;
+    background: var(--orange); color: var(--choc);
+    font: 700 15px/1 var(--body); letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
+    padding: 19px 30px; border-radius: 999px; border: 0; cursor: pointer;
+    box-shadow: 0 12px 28px -12px rgba(255, 117, 29, 0.9);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  }
+  .btn:hover { transform: translateY(-2px); background: #FF8536; box-shadow: 0 18px 32px -14px rgba(255, 117, 29, 0.95); }
+  .btn:focus-visible { outline: 3px solid var(--choc); outline-offset: 3px; }
+  .btn-lg { padding: 21px 36px; font-size: 16px; }
+  .i { width: 1em; height: 1em; fill: currentColor; flex: none; }
+
+  /* ---------- Kopfzeile ---------- */
+  .top { position: absolute; top: 0; left: 0; right: 0; z-index: 5; }
+  .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 20px; padding-bottom: 20px; }
+  .top img { height: 27px; width: auto; }
+  .top .btn { padding: 12px 18px; font-size: 12px; box-shadow: none; }
+  @media (min-width: 900px) { .top img { height: 33px; } }
+  @media (max-width: 520px) { .top .btn { display: none; } }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding-top: clamp(104px, 13vw, 150px); padding-bottom: clamp(64px, 8vw, 110px); overflow: hidden;
+    background:
+      radial-gradient(55% 60% at 88% 42%, rgba(255, 117, 29, 0.20), transparent 70%),
+      radial-gradient(35% 40% at 100% 0%, rgba(245, 7, 145, 0.10), transparent 70%),
+      var(--cream);
+  }
+  .hero-grid { display: grid; grid-template-areas: "head" "visual" "body"; gap: 26px; }
+  .hero-head { grid-area: head; }
+  .hero-body { grid-area: body; }
+  .hero-visual { grid-area: visual; position: relative; width: 100%; max-width: 320px; margin: 0 auto; }
+  @media (min-width: 960px) {
+    .hero-grid { grid-template-columns: 1.2fr 0.8fr; grid-template-areas: "head visual" "body visual"; column-gap: 48px; row-gap: 0; align-items: center; }
+    .hero-head { align-self: end; }
+    .hero-body { align-self: start; }
+    .hero-visual { max-width: 480px; }
+  }
+  .hero h1 { color: var(--choc); font-size: clamp(56px, 9vw, 106px); }
+  .hero .acc { margin-top: 16px; }
+  .lead { font-size: clamp(17px, 1.35vw, 19px); color: var(--ink-soft); max-width: 33em; margin: 26px 0 0; }
+  .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 22px; margin-top: 30px; }
+  .cta-note { font-size: 14px; line-height: 1.5; color: var(--ink-soft); margin: 0; }
+  .cta-note strong { color: var(--ink); font-weight: 600; }
+  #countdown { display: block; font-weight: 600; color: var(--orange-ink); }
+  .hero-visual .glow {
+    position: absolute; inset: 14% 6% 8% 6%; z-index: 0; filter: blur(38px);
+    background: radial-gradient(circle at 42% 42%, rgba(255, 117, 29, 0.55), rgba(245, 7, 145, 0.22) 55%, transparent 72%);
+  }
+  .hero-visual picture { position: relative; z-index: 1; display: block; animation: float 7s ease-in-out infinite; }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  .spark { position: absolute; z-index: 2; fill: var(--gold); width: 16px; height: 16px; animation: twinkle 4.5s ease-in-out infinite; }
+  .spark.s1 { top: 4%; left: 6%; }
+  .spark.s2 { top: 16%; right: 0; width: 24px; height: 24px; animation-delay: 1.3s; }
+  .spark.s3 { bottom: 18%; left: -2%; width: 20px; height: 20px; animation-delay: 2.2s; }
+  .spark.s4 { bottom: 4%; right: 12%; width: 12px; height: 12px; animation-delay: 0.7s; }
+  @keyframes twinkle { 0%, 100% { opacity: 0.9; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.8); } }
+
+  /* ---------- Kennst du das ---------- */
+  .pain { background: var(--cream-2); }
+  .cards3 { display: grid; gap: 18px; margin-top: 40px; }
+  @media (min-width: 860px) { .cards3 { grid-template-columns: repeat(3, 1fr); gap: 22px; } }
+  .card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 26px 26px; }
+  .card .num { font-family: var(--head); font-size: 22px; letter-spacing: 0.08em; color: var(--orange-ink); display: block; margin-bottom: 14px; }
+  .card h3 { margin-bottom: 12px; }
+  .card p { margin: 0; color: var(--ink-soft); font-size: 16px; }
+  .pain .closing { margin-top: 46px; }
+
+  /* ---------- So läuft's ---------- */
+  .steps { list-style: none; margin: 46px 0 0; padding: 0; display: grid; gap: 34px; }
+  @media (min-width: 900px) { .steps { grid-template-columns: repeat(3, 1fr); gap: 32px; } }
+  .step { position: relative; padding-top: 24px; }
+  .step::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 3px; background: var(--gA); }
+  .step-n {
+    font-family: var(--head); font-size: clamp(58px, 6vw, 78px); line-height: 0.9; display: inline-block;
+    background: var(--gA); -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .step-when { font: 700 12px/1.3 var(--body); letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange-ink); margin: 14px 0 8px; }
+  .step h3 { margin-bottom: 12px; }
+  .step p { color: var(--ink-soft); font-size: 16px; margin: 0; }
+
+  /* ---------- Dunkle Abschnitte ---------- */
+  .dark {
+    color: var(--cream);
+    background:
+      radial-gradient(70% 55% at 0% 0%, rgba(255, 117, 29, 0.26), transparent 62%),
+      radial-gradient(50% 45% at 100% 100%, rgba(245, 7, 145, 0.12), transparent 62%),
+      var(--choc);
+  }
+  .dark h2, .dark h3 { color: var(--cream); }
+  .dark p { color: rgba(255, 244, 231, 0.82); }
+  .dark .eyebrow { color: var(--gold); }
+  .dark .acc { color: var(--gold-soft); }
+  .dark .btn:focus-visible { outline-color: var(--cream); }
+  .dark .spark { opacity: 0.6; }
+
+  /* ---------- Kalender ---------- */
+  .stages { display: grid; gap: 14px; margin: 44px 0 50px; }
+  @media (min-width: 700px) { .stages { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1080px) { .stages { grid-template-columns: repeat(4, 1fr); } }
+  .stage { border: 1px solid rgba(233, 172, 76, 0.28); border-radius: 16px; padding: 20px 20px 18px; background: rgba(45, 19, 11, 0.35); }
+  .stage-top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+  .stage-n { font-family: var(--head); font-size: 42px; line-height: 0.9; color: var(--sc); }
+  .stage-days { font: 700 11px/1 var(--body); letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255, 244, 231, 0.62); }
+  .stage h3 { font-size: 26px; margin: 12px 0 8px; }
+  .stage p { font-size: 15px; margin: 0; }
+
+  .cal { display: grid; gap: 26px; }
+  @media (min-width: 960px) { .cal { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 44px; align-items: start; } }
+  .cal-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(6px, 1.2vw, 10px); max-width: 540px; width: 100%; margin: 0 auto; }
+  .door {
+    -webkit-appearance: none; appearance: none; font: inherit; margin: 0; padding: 0;
+    position: relative; aspect-ratio: 1 / 1; border-radius: 10px; cursor: pointer;
+    border: 1px solid rgba(233, 172, 76, 0.32); background: rgba(45, 19, 11, 0.5);
+    color: rgba(255, 244, 231, 0.5);
+    font-family: var(--head); font-size: clamp(22px, 3.6vw, 32px); line-height: 1;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
+  }
+  .door::after { content: ""; position: absolute; right: 9%; top: 50%; width: 5px; height: 5px; margin-top: -2.5px; border-radius: 50%; background: rgba(233, 172, 76, 0.55); }
+  .door .bar { position: absolute; left: 18%; right: 18%; bottom: 9%; height: 2px; border-radius: 2px; background: var(--sc); opacity: 0.55; }
+  .door .d-star { position: absolute; top: 7%; right: 8%; width: 28%; max-width: 13px; height: auto; aspect-ratio: 1; fill: var(--gold); }
+  .door .d-sub { position: absolute; left: 0; right: 0; bottom: 14%; font: 700 8px/1 var(--body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+  .door.open { border-color: rgba(233, 172, 76, 0.85); color: var(--cream); background: linear-gradient(160deg, rgba(255, 117, 29, 0.24), rgba(45, 19, 11, 0.45)); }
+  .door:hover { transform: translateY(-2px); box-shadow: 0 0 0 1px rgba(233, 172, 76, 0.7), 0 12px 24px -12px rgba(255, 190, 90, 0.7); }
+  .door:focus-visible { outline: 2px solid var(--cream); outline-offset: 2px; }
+  .door[aria-pressed="true"] {
+    background: radial-gradient(circle at 50% 42%, #FFE3A8 0%, #F0B65A 55%, #D98E2E 100%);
+    color: var(--choc); border-color: #FFD58A; box-shadow: 0 0 24px rgba(255, 190, 90, 0.5);
+  }
+  .door[aria-pressed="true"]::after { background: var(--choc); }
+  .door[aria-pressed="true"] .d-star, .door[aria-pressed="true"] .d-sub { fill: var(--choc); color: var(--choc); }
+  .cal-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: center; font-size: 13px; color: rgba(255, 244, 231, 0.66); margin: 16px 0 0; }
+  .cal-legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .cal-legend .i { fill: var(--gold); }
+  .dot { width: 10px; height: 10px; border-radius: 3px; border: 1px solid rgba(233, 172, 76, 0.85); background: rgba(255, 117, 29, 0.3); }
+  .dot.zu { border-color: rgba(233, 172, 76, 0.32); background: rgba(45, 19, 11, 0.5); }
+
+  .cal-panel {
+    background: rgba(45, 19, 11, 0.55); border: 1px solid rgba(233, 172, 76, 0.38); border-radius: 18px;
+    padding: 26px 26px 24px; min-height: 232px;
+  }
+  .p-date { font: 700 12px/1.3 var(--body); letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin: 0; }
+  .cal-panel h3 { font-size: clamp(32px, 3.4vw, 42px); margin: 10px 0 12px; }
+  .cal-panel p { font-size: 16px; margin: 0; }
+  .p-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .tag {
+    display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 999px;
+    font: 700 11px/1 var(--body); letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid rgba(255, 244, 231, 0.3); color: var(--cream);
+  }
+  .tag.pro { background: var(--gold); border-color: var(--gold); color: var(--choc); }
+  .tag.pro .i { fill: var(--choc); }
+
+  .glance { margin-top: 22px; }
+  .glance-title { font: 700 12px/1.3 var(--body); letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255, 244, 231, 0.62); margin: 0 0 6px; }
+  .glance ol { list-style: none; margin: 0; padding: 0; }
+  .glance button {
+    -webkit-appearance: none; appearance: none; width: 100%; display: flex; align-items: baseline; gap: 14px; text-align: left;
+    background: none; border: 0; border-bottom: 1px solid rgba(233, 172, 76, 0.18); padding: 11px 2px; cursor: pointer;
+    color: rgba(255, 244, 231, 0.88); font: 500 15px/1.35 var(--body);
+  }
+  .glance button:hover, .glance button[aria-current="true"] { color: var(--gold-soft); }
+  .glance button:focus-visible { outline: 2px solid var(--cream); outline-offset: 2px; }
+  .glance .g-n { font-family: var(--head); font-size: 20px; color: var(--gold); min-width: 22px; }
+  .glance .g-t { flex: 1; }
+  .glance .i { fill: var(--gold); align-self: center; }
+
+  .teasers { margin-top: 64px; }
+  .teasers h3 { font-size: clamp(30px, 3.2vw, 40px); margin-bottom: 8px; }
+  .teasers > p { margin-bottom: 22px; }
+  .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+  .chips li {
+    display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 999px;
+    background: rgba(255, 244, 231, 0.07); border: 1px solid rgba(233, 172, 76, 0.32);
+    font-size: 15px; font-weight: 500; line-height: 1.3; color: var(--cream);
+  }
+  .chips .i { fill: var(--gold); }
+
+  /* ---------- Was du brauchst ---------- */
+  .ways { display: grid; gap: 18px; margin-top: 36px; }
+  @media (min-width: 820px) { .ways { grid-template-columns: 1fr 1fr; gap: 22px; } }
+  .way { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 26px; }
+  .way.a { border: 2px solid transparent; background: linear-gradient(var(--paper), var(--paper)) padding-box, var(--gA) border-box; }
+  .way .label { display: inline-block; font: 700 11px/1 var(--body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange-ink); margin-bottom: 14px; }
+  .way h3 { margin-bottom: 12px; }
+  .way p { margin: 0; color: var(--ink-soft); font-size: 16px; }
+  .needs .lead { max-width: none; }
+  .needs .lead .i { fill: var(--orange-ink); vertical-align: -0.12em; }
+  .tip { margin: 26px 0 0; padding: 18px 22px; border-radius: 14px; background: var(--cream-2); font-weight: 500; }
+
+  /* ---------- Für wen ---------- */
+  .fit-sec { background: var(--cream-2); }
+  .fit { display: grid; gap: 18px; margin-top: 36px; }
+  @media (min-width: 820px) { .fit { grid-template-columns: 1.15fr 0.85fr; gap: 22px; } }
+  .fit > div { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 26px 16px; }
+  .fit h3 { margin-bottom: 18px; }
+  .fit ul { list-style: none; margin: 0; padding: 0; }
+  .fit li { position: relative; padding-left: 36px; margin: 0 0 14px; font-size: 16px; }
+  .fit li .mark { position: absolute; left: 0; top: 1px; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; }
+  .fit-yes .mark { background: var(--gA); color: #fff; }
+  .fit-no .mark { background: rgba(72, 32, 20, 0.08); color: var(--ink-soft); font: 600 15px/1 var(--body); }
+  .fit .mark .i { width: 14px; height: 14px; }
+
+  /* ---------- Über Hanna ---------- */
+  .about { display: grid; gap: 40px; align-items: center; }
+  @media (min-width: 900px) { .about { grid-template-columns: 0.85fr 1.15fr; gap: 72px; } }
+  .about-photo { margin: 0 auto; position: relative; max-width: 420px; width: 88%; }
+  .about-photo::before { content: ""; position: absolute; inset: -14px -14px 14px 14px; border-radius: 26px; background: var(--gA); }
+  .about-photo img { position: relative; border-radius: 22px; aspect-ratio: 4 / 5; object-fit: cover; box-shadow: 0 30px 60px -30px rgba(72, 32, 20, 0.55); }
+  .about-text p { color: var(--ink-soft); }
+  .about-text h2 { margin-bottom: 22px; }
+  .sign { font-size: clamp(40px, 4vw, 50px); margin: 10px 0 4px; }
+  .insta { font-weight: 600; font-size: 15px; color: var(--orange-ink); text-decoration: none; border-bottom: 1px solid currentColor; }
+  .insta:hover { color: var(--choc); }
+
+  /* ---------- Warteliste ---------- */
+  .waitlist { padding-top: 0; }
+  .wl {
+    display: flex; gap: 20px; align-items: flex-start; padding: 26px 28px; border-radius: 22px;
+    border: 2px solid transparent; background: linear-gradient(var(--paper), var(--paper)) padding-box, var(--gA) border-box;
+  }
+  @media (max-width: 560px) { .wl { flex-direction: column; gap: 16px; padding: 24px 22px; } }
+  .wl-ico { flex: none; width: 54px; height: 54px; border-radius: 50%; background: var(--gA); display: grid; place-items: center; }
+  .wl-ico .i { width: 26px; height: 26px; fill: var(--cream); }
+  .wl h3 { margin-bottom: 8px; }
+  .wl p { margin: 0; color: var(--ink-soft); }
+
+  /* ---------- Angebot ---------- */
+  .offer-grid { display: grid; gap: 34px; align-items: center; }
+  @media (min-width: 960px) { .offer-grid { grid-template-columns: 0.8fr 1.2fr; gap: 64px; } }
+  .offer-visual { position: relative; max-width: 360px; width: 74%; margin: 0 auto; }
+  .offer-visual .glow { position: absolute; inset: 10% 0 6% 0; filter: blur(40px); background: radial-gradient(circle, rgba(255, 117, 29, 0.55), rgba(245, 7, 145, 0.2) 60%, transparent 75%); }
+  .offer-visual picture { position: relative; display: block; }
+  .offer-card {
+    border: 1px solid rgba(233, 172, 76, 0.42); border-radius: 26px; padding: clamp(26px, 4vw, 46px);
+    background: linear-gradient(160deg, rgba(255, 117, 29, 0.20), rgba(45, 19, 11, 0.55) 55%);
+  }
+  .offer-card h2 { margin-bottom: 6px; }
+  .checks { list-style: none; margin: 28px 0 30px; padding: 0; }
+  .checks li { position: relative; padding-left: 36px; margin: 0 0 14px; color: rgba(255, 244, 231, 0.88); font-size: 16px; }
+  .checks li strong { color: var(--cream); font-weight: 600; }
+  .checks .mark { position: absolute; left: 0; top: 1px; width: 24px; height: 24px; border-radius: 50%; background: var(--gold); color: var(--choc); display: grid; place-items: center; }
+  .checks .mark .i { width: 14px; height: 14px; }
+  .price { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 24px; }
+  .amount { font-family: var(--head); font-size: clamp(68px, 8vw, 96px); line-height: 0.85; color: var(--cream); }
+  .price-note { font-size: 14px; color: rgba(255, 244, 231, 0.72); }
+  .fine { font-size: 13px; line-height: 1.5; margin: 18px 0 0; color: rgba(255, 244, 231, 0.66) !important; }
+
+  /* ---------- FAQ ---------- */
+  .faq-list { margin-top: 36px; border-top: 1px solid var(--line); }
+  .faq-list details { border-bottom: 1px solid var(--line); }
+  .faq-list summary { list-style: none; cursor: pointer; padding: 22px 46px 22px 0; font: 600 18px/1.4 var(--body); position: relative; }
+  .faq-list summary::-webkit-details-marker { display: none; }
+  .faq-list summary::after {
+    content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+    font: 400 34px/1 var(--head); color: var(--orange-ink); transition: transform 0.2s ease;
+  }
+  .faq-list details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+  .faq-list summary:focus-visible { outline: 2px solid var(--choc); outline-offset: 4px; border-radius: 4px; }
+  .faq-list details p { margin: 0 0 22px; color: var(--ink-soft); max-width: 48em; }
+
+  /* ---------- Schluss ---------- */
+  .final {
+    text-align: center; color: var(--cream); overflow: hidden;
+    background:
+      radial-gradient(60% 80% at 0% 0%, rgba(255, 117, 29, 0.85), transparent 60%),
+      radial-gradient(55% 75% at 100% 0%, rgba(245, 7, 145, 0.6), transparent 60%),
+      linear-gradient(180deg, #6A2A17 0%, var(--choc) 60%, var(--choc-deep) 100%);
+  }
+  .final h2 { color: var(--cream); max-width: 12em; margin: 0 auto; }
+  .final .acc { color: var(--gold-soft); margin-top: 14px; }
+  .final .btn { margin-top: 34px; }
+
+  /* ---------- Fußzeile ---------- */
+  footer { background: var(--choc-deep); color: rgba(255, 244, 231, 0.72); padding: 40px 0 calc(40px + env(safe-area-inset-bottom)); }
+  footer .wrap { display: flex; flex-direction: column; gap: 18px; align-items: center; text-align: center; }
+  @media (min-width: 760px) { footer .wrap { flex-direction: row; justify-content: space-between; text-align: left; } }
+  footer img { height: 24px; width: auto; }
+  footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: center; }
+  footer a { color: rgba(255, 244, 231, 0.75); text-decoration: none; font-size: 14px; }
+  footer a:hover { color: var(--gold); }
+  footer small { font-size: 12px; opacity: 0.7; }
+
+  /* ---------- Kauf-Leiste am Handy ---------- */
+  .sticky {
+    position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 20;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 9px 9px 9px 20px; border-radius: 999px; background: rgba(45, 19, 11, 0.94); color: var(--cream);
+    box-shadow: 0 14px 30px -12px rgba(45, 19, 11, 0.6); transform: translateY(160%); transition: transform 0.35s ease;
+  }
+  .sticky.show { transform: none; }
+  .sticky .s-txt { font: 600 12px/1.25 var(--body); color: rgba(255, 244, 231, 0.8); }
+  .sticky .s-txt b { display: block; font: 400 21px/1 var(--head); letter-spacing: 0.02em; color: var(--cream); }
+  .sticky .btn { padding: 14px 20px; font-size: 12px; box-shadow: none; }
+  @media (min-width: 900px) { .sticky { display: none; } }
+
+  /* ---------- Einblenden beim Scrollen ---------- */
+  @media (max-width: 480px) {
+    .eyebrow { letter-spacing: 0.16em; }
+    .btn-lg { font-size: 14px; padding: 18px 22px; }
+    .offer-card .btn { display: block; width: 100%; }
+    .tag { letter-spacing: 0.06em; }
+  }
+  .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .js .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .js .reveal { opacity: 1; transform: none; transition: none; }
+    .hero-visual picture, .spark { animation: none; }
+    .btn, .door { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.2l2.95 6.2 6.8.82-5.02 4.68 1.31 6.72L12 17.3l-6.04 3.32 1.31-6.72L2.25 9.22l6.8-.82z"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 64 64"><path d="M32 4C34 24 40 30 60 32 40 34 34 40 32 60 30 40 24 34 4 32 24 30 30 24 32 4Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a href="#" aria-label="Zum Seitenanfang"><img src="images/logo-hanna-marzian.png" alt="Hanna Marzian" width="760" height="102" /></a>
+    <a class="btn" data-checkout href="#angebot">Kalender sichern</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-head">
+      <p class="eyebrow">KI-Adventskalender 2026 · Claude &amp; ChatGPT</p>
+      <!-- Alternative Hooks (jeweils große Zeile + kursive Zeile):
+           „Dieses Jahr packst du KI aus“ + „24 Türchen für Claude und ChatGPT“
+           „24 Türchen. 24 KI-Hacks.“ + „und an Heiligabend steht dein eigenes KI-System“
+           „Das kann Claude?!“ + „24 Türchen, nach denen du KI anders nutzt“ -->
+      <h1>24 KI-Hacks<br />zum Auspacken</h1>
+      <p class="acc">vom ersten Prompt bis zum eigenen KI&#8209;System</p>
+      <svg class="swoosh" viewBox="0 0 330 14" aria-hidden="true"><path d="M3 10 C 95 2, 210 2, 327 7" /></svg>
+    </div>
+
+    <div class="hero-visual">
+      <div class="glow" aria-hidden="true"></div>
+      <svg class="spark s1" aria-hidden="true"><use href="#i-spark" /></svg>
+      <svg class="spark s2" aria-hidden="true"><use href="#i-spark" /></svg>
+      <svg class="spark s3" aria-hidden="true"><use href="#i-spark" /></svg>
+      <svg class="spark s4" aria-hidden="true"><use href="#i-spark" /></svg>
+      <picture>
+        <source srcset="images/kalender-box.webp" type="image/webp" />
+        <img src="images/kalender-box.png" width="720" height="933" alt="Der KI-Adventskalender von Hanna Marzian: eine Box mit 24 Türchen, das erste leuchtet" fetchpriority="high" />
+      </picture>
+    </div>
+
+    <div class="hero-body">
+      <p class="lead">Ab dem 1. Dezember öffnest du jeden Morgen ein Türchen. Darin stecken ein kurzes Video von mir und ein Werkzeug für Claude oder ChatGPT, das du in zehn Minuten ausprobierst. Alles landet in deinem eigenen KI-Ordner, und an Heiligabend steht dein komplettes KI-System.</p>
+      <div class="cta-row">
+        <a class="btn btn-lg" data-checkout href="#angebot">Kalender sichern · <span data-preis>37</span>&nbsp;€</a>
+        <p class="cta-note"><strong>Tag 0 startet sofort nach dem Kauf.</strong><span id="countdown" hidden></span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== KENNST DU DAS ===================== -->
+<section class="pain">
+  <div class="wrap">
+    <h2 class="reveal">Kennst du das?</h2>
+    <div class="cards3">
+      <article class="card reveal">
+        <span class="num">01</span>
+        <h3>Deine Texte klingen nach KI</h3>
+        <p>Du lässt dir einen Post schreiben, und schon beim ersten Satz merkt jeder, woher er kommt.</p>
+      </article>
+      <article class="card reveal">
+        <span class="num">02</span>
+        <h3>Deine besten Prompts sind weg</h3>
+        <p>Irgendwo in Chat Nummer 47. Und beim nächsten Mal erklärst du der KI wieder alles von vorn.</p>
+      </article>
+      <article class="card reveal">
+        <span class="num">03</span>
+        <h3>Du siehst Reels und denkst: Wie machen die das?</h3>
+        <p>Karussells auf Knopfdruck, Videos, die Claude für dich schneidet. Das geht, und du lernst es gleich in der ersten Woche.</p>
+      </article>
+    </div>
+    <div class="closing center reveal">
+      <p class="acc">Genau dafür gibt es diesen Kalender.</p>
+      <svg class="swoosh" viewBox="0 0 330 14" aria-hidden="true"><path d="M3 10 C 95 2, 210 2, 327 7" /></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SO LÄUFT'S ===================== -->
+<section id="so-gehts">
+  <div class="wrap">
+    <p class="eyebrow reveal">So läuft dein Kalender</p>
+    <h2 class="reveal">Jeden Tag ein Türchen.<br />Am Ende ein System.</h2>
+    <ol class="steps">
+      <li class="step reveal">
+        <span class="step-n" aria-hidden="true">0</span>
+        <p class="step-when">Sofort nach dem Kauf</p>
+        <h3>Deine KI lernt dich kennen</h3>
+        <p>Wir richten deinen KI-Ordner ein, und deine KI fragt dich das Wichtigste: wie du heißt, wofür du sie nutzt, für wen du schreibst und wie du klingst. Ab dann musst du dich nicht mehr jedes Mal erklären.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step-n" aria-hidden="true">1–24</span>
+        <p class="step-when">Jeden Morgen im Dezember</p>
+        <h3>Ein Türchen, ein Werkzeug</h3>
+        <p>Ein Video von etwa einer Minute, in dem ich dir zeige, wie es geht. Dazu das Werkzeug, also ein Skill, eine Regel oder ein fertiger Prompt, und eine kleine Aufgabe für zehn Minuten. Du bekommst jedes Türchen per Mail und findest es im Mitgliederbereich.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step-n" aria-hidden="true">24</span>
+        <p class="step-when">An Heiligabend</p>
+        <h3>Dein KI-System steht</h3>
+        <p>Jedes Werkzeug wandert in deinen Ordner. Am 24. Dezember hast du alles an einem Ort, und deine KI arbeitet so, wie du es brauchst.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== KALENDER ===================== -->
+<section id="kalender" class="dark">
+  <div class="wrap">
+    <p class="eyebrow reveal">Das steckt drin</p>
+    <h2 class="reveal">Hinter jedem Türchen<br />ein KI-Hack</h2>
+    <p class="acc reveal" style="margin-top:14px">in vier Etappen vom Anfänger zum Fortgeschrittenen</p>
+
+    <div class="stages">
+      <div class="stage reveal" style="--sc:#E9AC4C">
+        <div class="stage-top"><span class="stage-n">01</span><span class="stage-days">Tag 0 bis 6</span></div>
+        <h3>Einrichten &amp; Grundlagen</h3>
+        <p>Dein Ordner, deine Regeln und Texte, die nach dir klingen.</p>
+      </div>
+      <div class="stage reveal" style="--sc:#FF751D">
+        <div class="stage-top"><span class="stage-n">02</span><span class="stage-days">Tag 7 bis 13</span></div>
+        <h3>Clever nutzen</h3>
+        <p>KI im Browser, das richtige Modell für jede Aufgabe und Grafiken in deinen Farben.</p>
+      </div>
+      <div class="stage reveal" style="--sc:#FF3F63">
+        <div class="stage-top"><span class="stage-n">03</span><span class="stage-days">Tag 14 bis 19</span></div>
+        <h3>Wow, das geht?!</h3>
+        <p>Mini-Apps, ein aufgeräumtes Postfach und dein Rechner, gesteuert vom Handy.</p>
+      </div>
+      <div class="stage reveal" style="--sc:#F50791">
+        <div class="stage-top"><span class="stage-n">04</span><span class="stage-days">Tag 20 bis 24</span></div>
+        <h3>Deine persönliche KI</h3>
+        <p>Deine KI kennt dich, schreibt wie du und meldet sich morgens von selbst.</p>
+      </div>
+    </div>
+
+    <div class="cal">
+      <div class="reveal">
+        <div class="cal-grid" id="cal-grid" aria-label="Die 24 Türchen und Tag 0"></div>
+        <div class="cal-legend">
+          <span><i class="dot" aria-hidden="true"></i>schon zu sehen</span>
+          <span><i class="dot zu" aria-hidden="true"></i>bleibt noch zu</span>
+          <span><svg class="i" aria-hidden="true"><use href="#i-star" /></svg>Highlight mit Claude Pro</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="cal-panel" id="cal-panel" aria-live="polite"></div>
+        <div class="glance">
+          <p class="glance-title">Die ersten Türchen auf einen Blick</p>
+          <ol id="glance"></ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="teasers reveal">
+      <h3>Außerdem hinter den Türchen</h3>
+      <p>Was genau an welchem Tag kommt, bleibt eine Überraschung. Ein paar Ausblicke:</p>
+      <ul class="chips">
+        <li>Deinen Rechner vom Handy aus steuern <svg class="i" role="img" aria-label="Highlight mit Claude Pro"><use href="#i-star" /></svg></li>
+        <li>Belege fürs Finanzamt sortieren lassen <svg class="i" role="img" aria-label="Highlight mit Claude Pro"><use href="#i-star" /></svg></li>
+        <li>Dein Postfach in drei Stapel sortieren</li>
+        <li>Einen eigenen Preisrechner als Mini-App bauen</li>
+        <li>Dein schwierigstes Kundengespräch üben</li>
+        <li>Grafiken in deinen Markenfarben</li>
+        <li>Eine KI, die sich jeden Morgen von selbst meldet</li>
+        <li>Am 24.: alle Werkzeuge als Skill-Paket</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WAS DU BRAUCHST ===================== -->
+<section id="was-du-brauchst" class="needs">
+  <div class="wrap narrow">
+    <p class="eyebrow reveal">Ehrlich gesagt</p>
+    <h2 class="reveal">Was du brauchst</h2>
+    <p class="lead reveal">Die meisten Türchen funktionieren kostenlos, mit Claude oder mit ChatGPT. Für die Highlights mit <svg class="i" role="img" aria-label="Stern"><use href="#i-star" /></svg> brauchst du Claude Pro und die Claude-Desktop-App. Ein Monat reicht dafür.</p>
+    <div class="ways">
+      <div class="way a reveal">
+        <span class="label">Weg A · mit Claude Pro</span>
+        <h3>Dein Ordner auf dem Rechner</h3>
+        <p>Claude arbeitet direkt in deinem KI-Ordner. Alle Türchen gehen, auch die Highlights. Claude Pro kostet rund 20&nbsp;€ im Monat, und nach dem Dezember kannst du es wieder kündigen.</p>
+      </div>
+      <div class="way reveal">
+        <span class="label">Weg B · ohne Abo</span>
+        <h3>Dein Projekt in Claude</h3>
+        <p>Du sammelst deine Werkzeuge in einem Projekt in Claude. Die meisten Türchen gehen genauso. Bei den Highlights schaust du zu und entscheidest danach, ob du upgraden willst.</p>
+      </div>
+    </div>
+    <p class="tip reveal">Du hast schon ChatGPT Plus? Dann gönn dir im Dezember einfach mal einen Monat Claude.</p>
+  </div>
+</section>
+
+<!-- ===================== FÜR WEN ===================== -->
+<section class="fit-sec">
+  <div class="wrap">
+    <h2 class="reveal">Für wen der Kalender passt</h2>
+    <div class="fit">
+      <div class="fit-yes reveal">
+        <h3>Passt, wenn du</h3>
+        <ul>
+          <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span>Claude oder ChatGPT schon mal benutzt hast und mehr rausholen willst</li>
+          <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span>selbstständig bist, coachst oder ein kleines Business hast</li>
+          <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span>KI auch im Alltag nutzen willst und nicht nur im Job</li>
+          <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span>lieber ausprobierst, als stundenlang Theorie zu lesen</li>
+          <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span>dir im Dezember zehn Minuten am Tag für dich nimmst</li>
+        </ul>
+      </div>
+      <div class="fit-no reveal">
+        <h3>Eher nicht, wenn du</h3>
+        <ul>
+          <li><span class="mark" aria-hidden="true">×</span>programmieren lernen willst</li>
+          <li><span class="mark" aria-hidden="true">×</span>komplexe KI-Agenten bauen willst</li>
+          <li><span class="mark" aria-hidden="true">×</span>eine fertige Lösung suchst, ohne selbst etwas auszuprobieren</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ÜBER HANNA ===================== -->
+<section id="hanna">
+  <div class="wrap about">
+    <figure class="about-photo reveal">
+      <img src="images/hanna.jpg" width="720" height="900" alt="Hanna Marzian am Laptop" loading="lazy" />
+    </figure>
+    <div class="about-text reveal">
+      <p class="eyebrow">Wer dich begleitet</p>
+      <h2>Hi, ich bin Hanna</h2>
+      <p>Ich zeige dir KI-Hacks, die du sofort ausprobieren kannst. Ohne Fachchinesisch und mit Beispielen aus dem echten Alltag von Selbstständigen.</p>
+      <p>Den Kalender habe ich so gebaut, wie ich selbst am liebsten lerne: jeden Tag ein kleines Stück, das sofort funktioniert. Und weil gute Prompts so schnell in alten Chats verschwinden, kommt bei uns alles an einen Ort.</p>
+      <p>Am 24. Dezember soll deine KI dich kennen, nach dir klingen und dir echte Arbeit abnehmen. Ich freu mich, wenn du dabei bist.</p>
+      <p class="acc sign">Hanna</p>
+      <a class="insta" href="https://www.instagram.com/hanna.marzian/" target="_blank" rel="noopener">@hanna.marzian auf Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WARTELISTE ===================== -->
+<section class="waitlist">
+  <div class="wrap narrow">
+    <div class="wl reveal">
+      <div class="wl-ico" aria-hidden="true"><svg class="i"><use href="#i-star" /></svg></div>
+      <div>
+        <h3>Du stehst auf meiner Warteliste?</h3>
+        <p>Dann wartet am 25. Dezember noch ein Extra-Türchen auf dich. Kauf einfach mit derselben E-Mail-Adresse, mit der du dich eingetragen hast, dann kommt es automatisch zu dir.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ANGEBOT ===================== -->
+<section id="angebot" class="dark">
+  <div class="wrap offer-grid">
+    <div class="offer-visual reveal" aria-hidden="true">
+      <div class="glow"></div>
+      <picture>
+        <source srcset="images/kalender-box.webp" type="image/webp" />
+        <img src="images/kalender-box.png" width="720" height="933" alt="" loading="lazy" />
+      </picture>
+    </div>
+    <div class="offer-card reveal">
+      <p class="eyebrow">Dein KI-Adventskalender</p>
+      <h2>Alles drin für deinen KI-Dezember</h2>
+      <ul class="checks">
+        <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>Tag 0 sofort nach dem Kauf:</strong> dein KI-Ordner und eine KI, die dich kennt</li>
+        <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>24 Türchen</strong> vom 1. bis 24. Dezember, jeden Morgen per Mail</li>
+        <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span>In jedem Türchen ein <strong>kurzes Video</strong>, ein <strong>Werkzeug</strong> und eine <strong>Aufgabe für zehn Minuten</strong></li>
+        <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>Fertige Skills, Regeln und Prompts</strong> für Claude und ChatGPT</li>
+        <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span>Alle Türchen gesammelt im <strong>Mitgliederbereich</strong></li>
+        <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>Für die Warteliste:</strong> ein Extra-Türchen am 25. Dezember</li>
+      </ul>
+      <div class="price">
+        <span class="amount"><span data-preis>37</span>&nbsp;€</span>
+        <span class="price-note">einmalig, inkl. MwSt.</span>
+      </div>
+      <a class="btn btn-lg" data-checkout href="#angebot">Jetzt Kalender sichern</a>
+      <p class="fine">Du zahlst einmal über alfima und bekommst sofort Zugang zu Tag 0. Der Kalender ist kein Abo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq">
+  <div class="wrap narrow">
+    <h2 class="reveal">Gut zu wissen</h2>
+    <div class="faq-list reveal">
+      <details>
+        <summary>Brauche ich ein KI-Abo?</summary>
+        <p>Für die meisten Türchen nicht. Die gehen mit den kostenlosen Versionen von Claude oder ChatGPT. Für die Highlights mit Stern brauchst du Claude Pro und die Claude-Desktop-App. Ein Monat reicht, danach kannst du wieder kündigen.</p>
+      </details>
+      <details>
+        <summary>Claude oder ChatGPT?</summary>
+        <p>Beides. Viele Türchen funktionieren mit beiden, die Highlights laufen mit Claude. In jedem Türchen steht, womit es geht.</p>
+      </details>
+      <details>
+        <summary>Wie viel Zeit brauche ich pro Tag?</summary>
+        <p>Rund zehn Minuten. Das Video dauert etwa eine Minute, den Rest der Zeit probierst du selbst aus. An ein, zwei Tagen wird es etwas mehr, das sage ich dir vorher.</p>
+      </details>
+      <details>
+        <summary>Ich bin eher Anfängerin. Komme ich mit?</summary>
+        <p>Ja. Wir starten mit den Grundlagen, und in jedem Video siehst du genau, was ich klicke. Wenn du schon mal mit ChatGPT oder Claude geschrieben hast, reicht das völlig.</p>
+      </details>
+      <details>
+        <summary>Was ist, wenn ich ein Türchen verpasse?</summary>
+        <p>Dann holst du es nach. Jedes geöffnete Türchen bleibt im Mitgliederbereich für dich da.</p>
+      </details>
+      <details>
+        <summary>Funktioniert das auf Mac und Windows?</summary>
+        <p>Ja. Die Claude-Desktop-App gibt es für Mac und Windows. Videos und Mails kannst du dir auch am Handy anschauen.</p>
+      </details>
+      <details>
+        <summary>Ich stehe auf der Warteliste. Wie bekomme ich mein Extra-Türchen?</summary>
+        <p>Kauf mit derselben E-Mail-Adresse, mit der du dich eingetragen hast. Dann kommt das Extra-Türchen am 25. Dezember automatisch zu dir.</p>
+      </details>
+      <details>
+        <summary>Wann geht es los?</summary>
+        <p>Tag 0 bekommst du direkt nach dem Kauf. Das erste Türchen öffnet am 1. Dezember, danach kommt jeden Morgen ein neues, bis Heiligabend.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SCHLUSS ===================== -->
+<section class="final">
+  <div class="wrap center">
+    <h2 class="reveal">Am 1. Dezember geht das erste Türchen auf</h2>
+    <p class="acc reveal">Ich freu mich auf dich.</p>
+    <a class="btn btn-lg reveal" data-checkout href="#angebot">Kalender sichern · <span data-preis>37</span>&nbsp;€</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="images/logo-hanna-marzian-hell.png" alt="Hanna Marzian" width="760" height="102" />
+    <nav aria-label="Rechtliches">
+      <a href="https://www.instagram.com/hanna.marzian/" target="_blank" rel="noopener">Instagram</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </nav>
+    <small>© 2026 Hanna Marzian</small>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky" aria-hidden="true">
+  <span class="s-txt"><b>KI-Adventskalender</b>24 Türchen · <span data-preis>37</span>&nbsp;€</span>
+  <a class="btn" data-checkout href="#angebot" tabindex="-1">Sichern</a>
+</div>
+
+<script>
+(function () {
+  /* ---------- Preis und Checkout-Link aus dem Block oben ---------- */
+  var K = window.KALENDER || {};
+  var preis = String(K.preis || '37').trim();
+  var link = String(K.checkoutLink || '').trim();
+  document.querySelectorAll('[data-preis]').forEach(function (el) { el.textContent = preis; });
+  document.querySelectorAll('[data-checkout]').forEach(function (a) { a.setAttribute('href', link || '#angebot'); });
+
+  /* ---------- Countdown bis Türchen 1 (1.12.2026, 0 Uhr deutscher Zeit) ---------- */
+  var cd = document.getElementById('countdown');
+  var diff = Date.UTC(2026, 10, 30, 23, 0, 0) - Date.now();
+  if (cd && diff > 0) {
+    var tage = Math.ceil(diff / 86400000);
+    cd.textContent = tage === 1 ? 'Morgen öffnet Türchen 1.' : 'Noch ' + tage + ' Tage bis Türchen 1.';
+    cd.hidden = false;
+  }
+
+  /* ---------- Türchen ---------- */
+  var TAGE = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+  var ETAPPEN = [
+    { name: 'Einrichten & Grundlagen', bis: 6, farbe: '#E9AC4C' },
+    { name: 'Clever nutzen', bis: 13, farbe: '#FF751D' },
+    { name: 'Wow, das geht?!', bis: 19, farbe: '#FF3F63' },
+    { name: 'Deine persönliche KI', bis: 24, farbe: '#F50791' }
+  ];
+  var FREI = 'Kostenlos · Claude oder ChatGPT';
+  var PRO = 'Claude Pro + Desktop-App';
+  var OFFEN = {
+    0: { titel: 'Dein KI-Ordner', text: 'Wir richten dein Zuhause für alle 24 Werkzeuge ein, und deine KI lernt dich kennen: wofür du sie nutzt, für wen du schreibst und wie du klingst. Mit Claude Pro als Ordner auf deinem Rechner, ohne Abo als Projekt in Claude.', tag: 'Mit und ohne Abo' },
+    1: { titel: 'Karussell auf Knopfdruck', stern: true, text: 'Du gibst ein Thema ein, und Claude baut mit meinem Karussell-Skill ein fertiges Instagram-Karussell. Die Farben änderst du mit einem Satz, ohne alles neu zu bauen.', tag: PRO },
+    2: { titel: 'Dein Reel, geschnitten von Claude', stern: true, text: 'Rohvideo rein, Pausen raus, Animationen drüber. Mein Video-Skill übernimmt den Schnitt und richtet die nötigen Programme selbst ein.', tag: PRO },
+    3: { titel: 'Warum klingt das nach KI?', text: 'Der Floskel-Killer: Du gibst einen Text rein, die KI markiert typische KI-Floskeln und schreibt sie in klare Worte um. Dazu gibt es ein kurzes Quiz.', tag: FREI },
+    4: { titel: 'Klingt nach dir statt nach allen', text: 'Der Konkret-Macher: Deine KI fragt erst nach drei, vier Details, zum Beispiel für wen, ein echtes Beispiel und welches Ergebnis. Dann schreibt sie, und der Unterschied ist sofort sichtbar.', tag: FREI },
+    5: { titel: 'Lass die KI zurückfragen', text: 'Ein einziger Satz, der jeden Prompt besser macht: Deine KI stellt dir zuerst die Fragen, die sie wirklich braucht.', tag: FREI },
+    6: { titel: 'Dein Second Brain', stern: true, zusatz: 'Nikolaus', text: 'Zum Nikolaus bekommt deine KI ein Gedächtnis. Wir machen aus deinem Ordner ein einfaches Second Brain mit Tagesnotiz, und ich zeige dir meins.', tag: PRO },
+    7: { titel: 'Claude in Chrome', stern: true, text: 'Claude arbeitet direkt in deinem Browser mit und nimmt dir Klickarbeit ab. Dazu siehst du, was ChatGPT in diesem Bereich kann.', tag: 'Claude Pro' },
+    8: { titel: 'Das richtige Modell für jede Aufgabe', text: 'Welches Modell und welche Denkstufe wofür? Kleine Stufe für schnelle Fragen, große für Karussell oder Video. So werden deine Ergebnisse besser, und dein Limit hält länger.', tag: FREI }
+  };
+
+  function etappe(n) { for (var i = 0; i < ETAPPEN.length; i++) { if (n <= ETAPPEN[i].bis) return ETAPPEN[i]; } return ETAPPEN[3]; }
+  function datum(n) {
+    if (n === 0) return 'Sofort nach dem Kauf';
+    var d = new Date(Date.UTC(2026, 11, n));
+    return TAGE[d.getUTCDay()] + ', ' + n + '. Dezember';
+  }
+  function stern(cls, label) {
+    return '<svg class="' + cls + '"' + (label ? ' role="img" aria-label="' + label + '"' : ' aria-hidden="true"') + '><use href="#i-star" /></svg>';
+  }
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+  var grid = document.getElementById('cal-grid');
+  var panel = document.getElementById('cal-panel');
+  var glance = document.getElementById('glance');
+  if (!grid || !panel) return;
+
+  var html = '';
+  for (var n = 0; n <= 24; n++) {
+    var o = OFFEN[n];
+    var e = etappe(n);
+    var label = o ? 'Türchen ' + n + ': ' + o.titel + (o.stern ? ', Highlight mit Claude Pro' : '') : 'Türchen ' + n + ', öffnet am ' + n + '. Dezember';
+    html += '<button type="button" class="door' + (o ? ' open' : '') + '" data-n="' + n + '" aria-pressed="false" style="--sc:' + e.farbe + '" aria-label="' + esc(label) + '">' +
+      '<span aria-hidden="true">' + n + '</span>' +
+      (o && o.stern ? stern('d-star') : '') +
+      (n === 0 ? '<span class="d-sub" aria-hidden="true">sofort</span>' : '<span class="bar" aria-hidden="true"></span>') +
+      '</button>';
+  }
+  grid.innerHTML = html;
+
+  if (glance) {
+    var g = '';
+    Object.keys(OFFEN).forEach(function (k) {
+      var o = OFFEN[k];
+      g += '<li><button type="button" data-n="' + k + '"><span class="g-n">' + k + '</span><span class="g-t">' + esc(o.titel) + '</span>' + (o.stern ? stern('i', 'Highlight mit Claude Pro') : '') + '</button></li>';
+    });
+    glance.innerHTML = g;
+  }
+
+  function zeige(n) {
+    n = Number(n);
+    var o = OFFEN[n];
+    var e = etappe(n);
+    grid.querySelectorAll('.door').forEach(function (d) { d.setAttribute('aria-pressed', Number(d.getAttribute('data-n')) === n ? 'true' : 'false'); });
+    if (glance) glance.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-current', Number(b.getAttribute('data-n')) === n ? 'true' : 'false'); });
+    if (o) {
+      panel.innerHTML =
+        '<p class="p-date">' + (n === 0 ? 'Tag 0 · ' : 'Türchen ' + n + ' · ') + datum(n) + (o.zusatz ? ' · ' + o.zusatz : '') + '</p>' +
+        '<h3>' + esc(o.titel) + '</h3>' +
+        '<p>' + esc(o.text) + '</p>' +
+        '<div class="p-tags">' +
+          (o.stern ? '<span class="tag pro">' + stern('i', 'Highlight') + esc(o.tag) + '</span>' : '<span class="tag">' + esc(o.tag) + '</span>') +
+          '<span class="tag">Etappe: ' + esc(e.name) + '</span>' +
+        '</div>';
+    } else {
+      panel.innerHTML =
+        '<p class="p-date">Türchen ' + n + ' · ' + datum(n) + '</p>' +
+        '<h3>Noch zu</h3>' +
+        '<p>Dieses Türchen öffnet am ' + n + '. Dezember. Was dahinter steckt, verrate ich hier noch nicht. Ein paar Ausblicke findest du weiter unten.</p>' +
+        '<div class="p-tags"><span class="tag">Etappe: ' + esc(e.name) + '</span></div>';
+    }
+  }
+  grid.addEventListener('click', function (ev) { var b = ev.target.closest('.door'); if (b) zeige(b.getAttribute('data-n')); });
+  if (glance) glance.addEventListener('click', function (ev) { var b = ev.target.closest('button'); if (b) zeige(b.getAttribute('data-n')); });
+  zeige(1);
+
+  /* ---------- Kauf-Leiste am Handy ---------- */
+  var sticky = document.getElementById('sticky');
+  var heroCta = document.querySelector('.hero .btn-lg');
+  var angebot = document.getElementById('angebot');
+  var schluss = document.querySelector('.final');
+  function imBild(el) { if (!el) return false; var r = el.getBoundingClientRect(); return r.top < window.innerHeight && r.bottom > 0; }
+  var wartet = false;
+  function leiste() {
+    wartet = false;
+    if (!sticky || !heroCta) return;
+    var zeigen = heroCta.getBoundingClientRect().bottom < 0 && !imBild(angebot) && !imBild(schluss);
+    sticky.classList.toggle('show', zeigen);
+    sticky.setAttribute('aria-hidden', zeigen ? 'false' : 'true');
+    sticky.querySelector('a').setAttribute('tabindex', zeigen ? '0' : '-1');
+  }
+  window.addEventListener('scroll', function () { if (!wartet) { wartet = true; requestAnimationFrame(leiste); } }, { passive: true });
+  window.addEventListener('resize', leiste);
+  leiste();
+
+  /* ---------- Einblenden beim Scrollen ---------- */
+  var rv = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io2 = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io2.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    rv.forEach(function (el) { io2.observe(el); });
+  } else {
+    rv.forEach(function (el) { el.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>
