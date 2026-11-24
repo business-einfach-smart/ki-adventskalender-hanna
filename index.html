@@ -12,7 +12,7 @@
      ===================================================================== -->
 <script>
   window.KALENDER = {
-    preis: "29",
+    preis: "37",
     checkoutLink: "https://alfima.com/hanna_marzian/adventskalender"
   };
 </script>
@@ -507,7 +507,7 @@
       <svg class="swoosh" viewBox="0 0 330 14" aria-hidden="true"><path d="M3 10 C 95 2, 210 2, 327 7" /></svg>
       <p class="lead"><strong>Für Selbstständige und Coaches, die bei KI endlich durchblicken wollen.</strong> Jeden Morgen öffnest du ein Türchen mit einem kurzen Video und einem Werkzeug, das du behältst. Schritt für Schritt, bis deine KI dich kennt und dir echte Arbeit abnimmt.</p>
       <div class="cta-row">
-        <a class="btn btn-lg" data-checkout href="#angebot">Kalender sichern · <span data-preis>29</span>&nbsp;€</a>
+        <a class="btn btn-lg" data-checkout href="#angebot">Kalender sichern · <span data-preis>37</span>&nbsp;€</a>
         <p class="cta-note"><strong>Tag 0 startet sofort nach dem Kauf.</strong><span id="countdown" hidden></span></p>
       </div>
     </div>
@@ -822,8 +822,8 @@
         <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>Für die Warteliste:</strong> ein Extra-Türchen am 25. Dezember</li>
       </ul>
       <div class="price">
-        <span class="amount"><span data-preis>29</span>&nbsp;€</span>
-        <span class="price-note">einmalig, inkl. MwSt.<br />Das sind rund <span data-pro-tuer>1,20</span>&nbsp;€ pro Türchen.</span>
+        <span class="amount"><span data-preis>37</span>&nbsp;€</span>
+        <span class="price-note">einmalig, inkl. MwSt.<br />Das sind rund <span data-pro-tuer>1,50</span>&nbsp;€ pro Türchen.</span>
       </div>
       <a class="btn btn-lg" data-checkout href="#angebot">Jetzt Kalender sichern</a>
       <p class="fine">Du zahlst einmal über alfima und bekommst sofort Zugang zu Tag 0. Der Kalender ist kein Abo.</p>
@@ -886,7 +886,7 @@
     <h2 class="reveal">Stell dir vor, es ist Heiligabend</h2>
     <p class="final-text reveal">Der Baum leuchtet, das Handy liegt mal zur Seite, und KI fühlt sich zum ersten Mal nicht mehr nach Baustelle an. Deine KI kennt dich, schreibt wie du und nimmt dir Arbeit ab. Du weißt, welches Werkzeug du wofür nimmst, und hast richtig Lust auf das, was du im neuen Jahr damit machst. Dafür hast du dir nur jeden Morgen zehn Minuten genommen.</p>
     <p class="acc reveal">Am 1. Dezember geht das erste Türchen auf. Ich freu mich auf dich.</p>
-    <a class="btn btn-lg reveal" data-checkout href="#angebot">Kalender sichern · <span data-preis>29</span>&nbsp;€</a>
+    <a class="btn btn-lg reveal" data-checkout href="#angebot">Kalender sichern · <span data-preis>37</span>&nbsp;€</a>
   </div>
 </section>
 
@@ -905,7 +905,7 @@
 </footer>
 
 <div class="sticky" id="sticky" aria-hidden="true">
-  <span class="s-txt"><b>KI-Adventskalender</b>24 Türchen · <span data-preis>29</span>&nbsp;€</span>
+  <span class="s-txt"><b>KI-Adventskalender</b>24 Türchen · <span data-preis>37</span>&nbsp;€</span>
   <a class="btn" data-checkout href="#angebot" tabindex="-1">Sichern</a>
 </div>
 
@@ -913,7 +913,7 @@
 (function () {
   /* ---------- Preis und Checkout-Link aus dem Block oben ---------- */
   var K = window.KALENDER || {};
-  var preis = String(K.preis || '29').trim();
+  var preis = String(K.preis || '37').trim();
   var link = String(K.checkoutLink || '').trim();
   document.querySelectorAll('[data-preis]').forEach(function (el) { el.textContent = preis; });
   var proTuer = (Math.round(parseFloat(preis.replace(',', '.')) / 24 * 10) / 10).toFixed(2).replace('.', ',');
