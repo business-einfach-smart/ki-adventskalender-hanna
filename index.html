@@ -18,14 +18,14 @@
 </script>
 
 <title>KI-Adventskalender 2026 · 24 KI-Hacks zum Auspacken · Hanna Marzian</title>
-<meta name="description" content="24 Türchen für Claude und ChatGPT: jeden Morgen ein kurzes Video und ein Werkzeug, das du in zehn Minuten ausprobierst. Tag 0 startet sofort nach dem Kauf." />
+<meta name="description" content="24 Türchen für Claude und ChatGPT: jeden Morgen ein kurzes Video und ein Werkzeug, das du behältst. Am 24. Dezember kennt deine KI dein Business, schreibt wie du und nimmt dir echte Arbeit ab." />
 <meta name="color-scheme" content="light" />
 <meta name="theme-color" content="#FFF4E7" />
 <!-- Link-Vorschau für WhatsApp, Instagram und Co. Läuft die Seite unter einer anderen Adresse, hier die Adresse anpassen. -->
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="de_DE" />
 <meta property="og:title" content="KI-Adventskalender 2026 · 24 KI-Hacks zum Auspacken" />
-<meta property="og:description" content="Vom ersten Prompt bis zum eigenen KI-System: 24 Türchen für Claude und ChatGPT mit Hanna Marzian." />
+<meta property="og:description" content="In 24 Tagen zu einer KI, die dich kennt und für dich arbeitet: 24 Türchen für Claude und ChatGPT mit Hanna Marzian." />
 <meta property="og:url" content="https://ki-adventskalender-hanna.netlify.app/" />
 <meta property="og:image" content="https://ki-adventskalender-hanna.netlify.app/og-image.jpg" />
 <meta property="og:image:width" content="1200" />
@@ -138,7 +138,7 @@
     .hero-visual { max-width: 480px; }
   }
   .hero h1 { color: var(--choc); font-size: clamp(56px, 9vw, 106px); }
-  .hero .acc { margin-top: 16px; }
+  .hero .acc { margin-top: 16px; text-wrap: balance; }
   .wk1 {
     margin-top: 26px; padding: 18px 22px 16px; max-width: 34em;
     background: #fff; border: 1.5px solid rgba(255, 117, 29, 0.45); border-radius: 18px;
@@ -152,6 +152,7 @@
   .wk1-note { margin: 12px 0 0; font-size: 13px; color: var(--ink-soft); display: flex; align-items: center; gap: 6px; }
   .wk1-note .i { width: 14px; height: 14px; fill: var(--gold); }
   .lead { font-size: clamp(17px, 1.35vw, 19px); color: var(--ink-soft); max-width: 33em; margin: 26px 0 0; }
+  .hero .lead strong { color: var(--choc); font-weight: 600; }
   .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 22px; margin-top: 30px; }
   .cta-note { font-size: 14px; line-height: 1.5; color: var(--ink-soft); margin: 0; }
   .cta-note strong { color: var(--ink); font-weight: 600; }
@@ -178,6 +179,42 @@
   .card h3 { margin-bottom: 12px; }
   .card p { margin: 0; color: var(--ink-soft); font-size: 16px; }
   .pain .closing { margin-top: 46px; }
+
+  /* ---------- Heute und an Heiligabend ---------- */
+  .change { background: var(--paper); }
+  .vs-head { display: none; }
+  .vs { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 12px; }
+  .vs-row {
+    display: grid; grid-template-columns: 1fr; border-radius: var(--radius); overflow: hidden;
+    border: 1px solid var(--line); background: #fff; box-shadow: 0 14px 34px -26px rgba(72, 32, 20, 0.5);
+  }
+  .vs-row p { margin: 0; padding: 14px 18px; font-size: 15px; line-height: 1.45; }
+  .vs-after { font-size: 16px; }
+  .vs-tag { display: block; font: 700 10.5px/1.3 var(--body); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 4px; }
+  .vs-before { background: var(--cream-2); color: var(--ink-soft); }
+  .vs-before .vs-tag { color: var(--ink-soft); opacity: 0.8; }
+  .vs-after { position: relative; color: var(--choc); font-weight: 600; display: grid; grid-template-columns: auto 1fr; column-gap: 12px; align-items: start; }
+  .vs-after .vs-tag { grid-column: 1 / -1; color: var(--orange-ink); }
+  .vs-check { flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--gA); color: #fff; display: grid; place-items: center; margin-top: 1px; }
+  .vs-check .i { width: 14px; height: 14px; }
+  .vs-star { width: 15px; height: 15px; fill: var(--gold); vertical-align: -0.1em; margin-left: 4px; }
+  .vs-arrow { display: none; }
+  .vs-note { margin: 14px 0 0; font-size: 13px; color: var(--ink-soft); display: flex; align-items: center; gap: 6px; }
+  .vs-note .i { width: 14px; height: 14px; fill: var(--gold); }
+  .vs-close { margin: 34px auto 0; max-width: 36em; text-align: center; font-size: clamp(17px, 1.5vw, 19px); color: var(--ink-soft); }
+  .vs-close strong { color: var(--choc); }
+  @media (min-width: 760px) {
+    .vs-head { display: grid; grid-template-columns: 1fr 44px 1.15fr; margin-top: 40px; padding: 0 22px; font: 700 12px/1.3 var(--body); letter-spacing: 0.18em; text-transform: uppercase; }
+    .vs-head span:first-child { color: var(--ink-soft); }
+    .vs-head span:last-child { grid-column: 3; color: var(--orange-ink); padding-left: 22px; }
+    .vs { margin-top: 12px; }
+    .vs-row { grid-template-columns: 1fr 44px 1.15fr; align-items: stretch; }
+    .vs-row .vs-tag { display: none; }
+    .vs-row p { padding: 20px 22px; display: flex; align-items: center; font-size: 16px; }
+    .vs-row .vs-after { display: grid; align-content: center; }
+    .vs-arrow { display: grid; place-items: center; background: linear-gradient(90deg, var(--cream-2) 50%, #fff 50%); color: var(--orange); }
+    .vs-arrow .i { width: 22px; height: 22px; }
+  }
 
   /* ---------- So läuft's ---------- */
   .steps { list-style: none; margin: 46px 0 0; padding: 0; display: grid; gap: 34px; }
@@ -354,6 +391,7 @@
   .checks li strong { color: var(--cream); font-weight: 600; }
   .checks .mark { position: absolute; left: 0; top: 1px; width: 24px; height: 24px; border-radius: 50%; background: var(--gold); color: var(--choc); display: grid; place-items: center; }
   .checks .mark .i { width: 14px; height: 14px; }
+  .checks .star-inline { width: 15px; height: 15px; fill: var(--gold); vertical-align: -0.1em; margin-left: 2px; }
   .price { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 24px; }
   .amount { font-family: var(--head); font-size: clamp(68px, 8vw, 96px); line-height: 0.85; color: var(--cream); }
   .price-note { font-size: 14px; color: rgba(255, 244, 231, 0.72); }
@@ -429,6 +467,7 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.2l2.95 6.2 6.8.82-5.02 4.68 1.31 6.72L12 17.3l-6.04 3.32 1.31-6.72L2.25 9.22l6.8-.82z"/></symbol>
   <symbol id="i-spark" viewBox="0 0 64 64"><path d="M32 4C34 24 40 30 60 32 40 34 34 40 32 60 30 40 24 34 4 32 24 30 30 24 32 4Z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </svg>
 
@@ -451,7 +490,7 @@
            „24 Türchen. 24 KI-Hacks.“ + „und an Heiligabend steht dein eigenes KI-System“
            „Das kann Claude?!“ + „24 Türchen, nach denen du KI anders nutzt“ -->
       <h1>24 KI-Hacks<br />zum Auspacken</h1>
-      <p class="acc">vom ersten Prompt bis zum eigenen KI&#8209;System</p>
+      <p class="acc">in 24 Tagen zu einer KI, die dich kennt und für dich arbeitet</p>
       <svg class="swoosh" viewBox="0 0 330 14" aria-hidden="true"><path d="M3 10 C 95 2, 210 2, 327 7" /></svg>
       <div class="wk1">
         <p class="wk1-label">Gleich in der ersten Woche</p>
@@ -476,7 +515,7 @@
     </div>
 
     <div class="hero-body">
-      <p class="lead">Ab dem 1. Dezember öffnest du jeden Morgen ein Türchen. Darin stecken ein kurzes Video von mir und ein Werkzeug für Claude oder ChatGPT, das du in zehn Minuten ausprobierst. Alles landet in deinem eigenen KI-Ordner, und an Heiligabend steht dein komplettes KI-System.</p>
+      <p class="lead"><strong>Für Selbstständige und Coaches, die KI für Instagram, Texte und Orga nutzen wollen.</strong> Ab dem 1. Dezember öffnest du jeden Morgen ein Türchen mit einem kurzen Video und einem Werkzeug, das du behältst. Am 24. Dezember kennt deine KI dein Business, schreibt wie du und nimmt dir Stunden an Arbeit ab.</p>
       <div class="cta-row">
         <a class="btn btn-lg" data-checkout href="#angebot">Kalender sichern · <span data-preis>29</span>&nbsp;€</a>
         <p class="cta-note"><strong>Tag 0 startet sofort nach dem Kauf.</strong><span id="countdown" hidden></span></p>
@@ -513,11 +552,49 @@
   </div>
 </section>
 
+<!-- ===================== VORHER / NACHHER ===================== -->
+<section class="change">
+  <div class="wrap narrow">
+    <p class="eyebrow reveal">Was sich für dich ändert</p>
+    <h2 class="reveal">Heute. Und an Heiligabend.</h2>
+    <div class="vs-head" aria-hidden="true"><span>Heute</span><span>Am 24. Dezember</span></div>
+    <ul class="vs">
+      <li class="vs-row reveal">
+        <p class="vs-before"><span class="vs-tag">Heute</span>Du erklärst der KI in jedem Chat von vorn, wer du bist und was du anbietest.</p>
+        <span class="vs-arrow" aria-hidden="true"><svg class="i"><use href="#i-arrow" /></svg></span>
+        <p class="vs-after"><span class="vs-tag">Am 24. Dezember</span><span class="vs-check" aria-hidden="true"><svg class="i"><use href="#i-check" /></svg></span><span>Deine KI kennt dein Business, deine Kundinnen und deinen Ton. Du fängst nie wieder bei null an.</span></p>
+      </li>
+      <li class="vs-row reveal">
+        <p class="vs-before"><span class="vs-tag">Heute</span>Deine Texte klingen nach KI, und am Ende schreibst du sie doch selbst um.</p>
+        <span class="vs-arrow" aria-hidden="true"><svg class="i"><use href="#i-arrow" /></svg></span>
+        <p class="vs-after"><span class="vs-tag">Am 24. Dezember</span><span class="vs-check" aria-hidden="true"><svg class="i"><use href="#i-check" /></svg></span><span>Deine Texte klingen nach dir, weil deine KI weiß, wie du schreibst und welche Floskeln rausfliegen.</span></p>
+      </li>
+      <li class="vs-row reveal">
+        <p class="vs-before"><span class="vs-tag">Heute</span>Ein Karussell kostet dich einen halben Tag in Canva.</p>
+        <span class="vs-arrow" aria-hidden="true"><svg class="i"><use href="#i-arrow" /></svg></span>
+        <p class="vs-after"><span class="vs-tag">Am 24. Dezember</span><span class="vs-check" aria-hidden="true"><svg class="i"><use href="#i-check" /></svg></span><span>Du gibst ein Thema ein, und Claude baut dir das Karussell.&nbsp;<svg class="i vs-star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></p>
+      </li>
+      <li class="vs-row reveal">
+        <p class="vs-before"><span class="vs-tag">Heute</span>Dein Rohvideo liegt ungeschnitten auf dem Handy.</p>
+        <span class="vs-arrow" aria-hidden="true"><svg class="i"><use href="#i-arrow" /></svg></span>
+        <p class="vs-after"><span class="vs-tag">Am 24. Dezember</span><span class="vs-check" aria-hidden="true"><svg class="i"><use href="#i-check" /></svg></span><span>Claude schneidet dein Reel: Pausen raus, Animationen drüber.&nbsp;<svg class="i vs-star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></p>
+      </li>
+      <li class="vs-row reveal">
+        <p class="vs-before"><span class="vs-tag">Heute</span>Deine besten Prompts verschwinden in alten Chats.</p>
+        <span class="vs-arrow" aria-hidden="true"><svg class="i"><use href="#i-arrow" /></svg></span>
+        <p class="vs-after"><span class="vs-tag">Am 24. Dezember</span><span class="vs-check" aria-hidden="true"><svg class="i"><use href="#i-check" /></svg></span><span>Alle Werkzeuge liegen griffbereit in deinem Ordner, auch nach Weihnachten.</span></p>
+      </li>
+    </ul>
+    <p class="vs-note reveal"><svg class="i" aria-hidden="true"><use href="#i-star" /></svg>mit Claude Pro</p>
+    <p class="vs-close reveal"><strong>Kein Roboter, der dein Business übernimmt.</strong> Sondern eine KI, die dich kennt und dir genau die Arbeit abnimmt, die dich jede Woche Zeit kostet.</p>
+  </div>
+</section>
+
 <!-- ===================== SO LÄUFT'S ===================== -->
 <section id="so-gehts">
   <div class="wrap">
     <p class="eyebrow reveal">So läuft dein Kalender</p>
-    <h2 class="reveal">Jeden Tag ein Türchen.<br />Am Ende ein System.</h2>
+    <h2 class="reveal">Jeden Tag ein Türchen.<br />Am Ende eine KI, die dich kennt.</h2>
     <ol class="steps">
       <li class="step reveal">
         <span class="step-n" aria-hidden="true">0</span>
@@ -529,13 +606,13 @@
         <span class="step-n" aria-hidden="true">1–24</span>
         <p class="step-when">Jeden Morgen im Dezember</p>
         <h3>Ein Türchen, ein Werkzeug</h3>
-        <p>Ein Video von etwa einer Minute, in dem ich dir zeige, wie es geht. Dazu das Werkzeug, also ein Skill, eine Regel oder ein fertiger Prompt, und eine kleine Aufgabe für zehn Minuten. Du bekommst jedes Türchen per Mail und findest es im Mitgliederbereich.</p>
+        <p>Ein Video von etwa einer Minute, in dem ich dir zeige, wie es geht. Dazu dein Werkzeug: eine fertige Vorlage für Claude oder ChatGPT, die du behältst und immer wieder nutzt. Und eine kleine Aufgabe für zehn Minuten. Du bekommst jedes Türchen per Mail und findest es im Mitgliederbereich.</p>
       </li>
       <li class="step reveal">
         <span class="step-n" aria-hidden="true">24</span>
         <p class="step-when">An Heiligabend</p>
-        <h3>Dein KI-System steht</h3>
-        <p>Jedes Werkzeug wandert in deinen Ordner. Am 24. Dezember hast du alles an einem Ort, und deine KI arbeitet so, wie du es brauchst.</p>
+        <h3>Deine KI nimmt dir Arbeit ab</h3>
+        <p>Alle Werkzeuge liegen in deinem Ordner. Deine KI schreibt wie du und übernimmt Aufgaben, für die du bisher Stunden gebraucht hast: Karussells, Reels, Texte und dein Postfach.</p>
       </li>
     </ol>
   </div>
@@ -552,7 +629,7 @@
       <div class="stage reveal" style="--sc:#E9AC4C">
         <div class="stage-top"><span class="stage-n">01</span><span class="stage-days">Tag 0 bis 6</span></div>
         <h3>Einrichten &amp; Grundlagen</h3>
-        <p>Dein Ordner, deine Regeln und Texte, die nach dir klingen.</p>
+        <p>Dein KI-Ordner, Karussells, Reels und Texte, die nach dir klingen.</p>
       </div>
       <div class="stage reveal" style="--sc:#FF751D">
         <div class="stage-top"><span class="stage-n">02</span><span class="stage-days">Tag 7 bis 13</span></div>
@@ -600,7 +677,7 @@
         <li>Dein schwierigstes Kundengespräch üben</li>
         <li>Grafiken in deinen Markenfarben</li>
         <li>Eine KI, die sich jeden Morgen von selbst meldet</li>
-        <li>Am 24.: alle Werkzeuge als Skill-Paket</li>
+        <li>Am 24.: alle Werkzeuge in einem Paket zum Mitnehmen</li>
       </ul>
     </div>
   </div>
@@ -636,9 +713,9 @@
       <div class="fit-yes reveal">
         <h3>Passt, wenn du</h3>
         <ul>
-          <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span>Claude oder ChatGPT schon mal benutzt hast und mehr rausholen willst</li>
           <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span>selbstständig bist, coachst oder ein kleines Business hast</li>
-          <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span>KI auch im Alltag nutzen willst und nicht nur im Job</li>
+          <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span>für Instagram, Texte und Orga jede Woche mehr Stunden brauchst, als dir lieb ist</li>
+          <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span>Claude oder ChatGPT schon mal benutzt hast und mehr rausholen willst</li>
           <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span>lieber ausprobierst, als stundenlang Theorie zu lesen</li>
           <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span>dir im Dezember zehn Minuten am Tag für dich nimmst</li>
         </ul>
@@ -700,16 +777,17 @@
       <p class="eyebrow">Dein KI-Adventskalender</p>
       <h2>Alles drin für deinen KI-Dezember</h2>
       <ul class="checks">
-        <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>Tag 0 sofort nach dem Kauf:</strong> dein KI-Ordner und eine KI, die dich kennt</li>
-        <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>24 Türchen</strong> vom 1. bis 24. Dezember, jeden Morgen per Mail</li>
-        <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span>In jedem Türchen ein <strong>kurzes Video</strong>, ein <strong>Werkzeug</strong> und eine <strong>Aufgabe für zehn Minuten</strong></li>
-        <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>Fertige Skills, Regeln und Prompts</strong> für Claude und ChatGPT</li>
-        <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span>Alle Türchen gesammelt im <strong>Mitgliederbereich</strong></li>
+        <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>Tag 0 sofort nach dem Kauf:</strong> Deine KI lernt dich kennen, damit du dich nie wieder erklären musst</li>
+        <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>24 Türchen</strong> vom 1. bis 24. Dezember, jeden Morgen per Mail: zehn Minuten am Tag, die du sofort merkst</li>
+        <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>Gleich in Woche 1:</strong> Karussells und Reels, die Claude für dich baut <svg class="i star-inline" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></li>
+        <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>24 Werkzeuge, die du behältst:</strong> fertige Vorlagen für Claude und ChatGPT, die du immer wieder nutzt</li>
+        <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>Kurze Videos</strong>, in denen du genau siehst, was ich klicke, ohne Fachchinesisch</li>
+        <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>Alle Türchen dauerhaft im Mitgliederbereich</strong>, falls du mal einen Tag verpasst</li>
         <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>Für die Warteliste:</strong> ein Extra-Türchen am 25. Dezember</li>
       </ul>
       <div class="price">
         <span class="amount"><span data-preis>29</span>&nbsp;€</span>
-        <span class="price-note">einmalig, inkl. MwSt.</span>
+        <span class="price-note">einmalig, inkl. MwSt.<br />Das sind rund <span data-pro-tuer>1,20</span>&nbsp;€ pro Türchen.</span>
       </div>
       <a class="btn btn-lg" data-checkout href="#angebot">Jetzt Kalender sichern</a>
       <p class="fine">Du zahlst einmal über alfima und bekommst sofort Zugang zu Tag 0. Der Kalender ist kein Abo.</p>
@@ -731,6 +809,14 @@
         <p>Beides. Viele Türchen funktionieren mit beiden, die Highlights laufen mit Claude. In jedem Türchen steht, womit es geht.</p>
       </details>
       <details>
+        <summary>Was ist ein Skill?</summary>
+        <p>Eine fertige Anleitung, die Claude eine Aufgabe dauerhaft beibringt. Du richtest sie einmal ein, und ab dann reicht ein Satz wie „Mach mir ein Karussell zu meinem neuen Angebot“. Wie das geht, zeige ich dir Schritt für Schritt im Video.</p>
+      </details>
+      <details>
+        <summary>Bekomme ich einen KI-Agenten, der mein Business steuert?</summary>
+        <p>Nein, und das verspreche ich dir auch nicht. Du bekommst eine KI, die dich kennt und dir konkrete Aufgaben abnimmt: Karussells, Reels, Texte, dein Postfach. Du gibst den Auftrag, sie liefert, und die Entscheidungen triffst weiter du.</p>
+      </details>
+      <details>
         <summary>Wie viel Zeit brauche ich pro Tag?</summary>
         <p>Rund zehn Minuten. Das Video dauert etwa eine Minute, den Rest der Zeit probierst du selbst aus. An ein, zwei Tagen wird es etwas mehr, das sage ich dir vorher.</p>
       </details>
@@ -740,7 +826,7 @@
       </details>
       <details>
         <summary>Was ist, wenn ich ein Türchen verpasse?</summary>
-        <p>Dann holst du es nach. Jedes geöffnete Türchen bleibt im Mitgliederbereich für dich da.</p>
+        <p>Dann holst du es nach. Alle Türchen bleiben dauerhaft im Mitgliederbereich, auch nach Weihnachten.</p>
       </details>
       <details>
         <summary>Funktioniert das auf Mac und Windows?</summary>
@@ -793,6 +879,8 @@
   var preis = String(K.preis || '29').trim();
   var link = String(K.checkoutLink || '').trim();
   document.querySelectorAll('[data-preis]').forEach(function (el) { el.textContent = preis; });
+  var proTuer = (Math.round(parseFloat(preis.replace(',', '.')) / 24 * 10) / 10).toFixed(2).replace('.', ',');
+  if (proTuer !== 'NaN') document.querySelectorAll('[data-pro-tuer]').forEach(function (el) { el.textContent = proTuer; });
   document.querySelectorAll('[data-checkout]').forEach(function (a) { a.setAttribute('href', link || '#angebot'); });
 
   /* ---------- Countdown bis Türchen 1 (1.12.2026, 0 Uhr deutscher Zeit) ---------- */
@@ -816,7 +904,7 @@
   var PRO = 'Claude Pro + Desktop-App';
   var OFFEN = {
     0: { titel: 'Dein KI-Ordner', text: 'Wir richten dein Zuhause für alle 24 Werkzeuge ein, und deine KI lernt dich kennen: wofür du sie nutzt, für wen du schreibst und wie du klingst. Mit Claude Pro als Ordner auf deinem Rechner, ohne Abo als Projekt in Claude.', tag: 'Mit und ohne Abo' },
-    1: { titel: 'Karussell auf Knopfdruck', stern: true, text: 'Du gibst ein Thema ein, und Claude baut mit meinem Karussell-Skill ein fertiges Instagram-Karussell. Die Farben änderst du mit einem Satz, ohne alles neu zu bauen.', tag: PRO },
+    1: { titel: 'Karussell auf Knopfdruck', stern: true, text: 'Du gibst ein Thema ein, und Claude baut dir ein fertiges Instagram-Karussell. Dafür bekommst du meinen Karussell-Skill, eine Anleitung, die Claude diese Aufgabe dauerhaft beibringt. Die Farben änderst du mit einem Satz.', tag: PRO },
     2: { titel: 'Dein Reel, geschnitten von Claude', stern: true, text: 'Rohvideo rein, Pausen raus, Animationen drüber. Mein Video-Skill übernimmt den Schnitt und richtet die nötigen Programme selbst ein.', tag: PRO },
     3: { titel: 'Warum klingt das nach KI?', text: 'Der Floskel-Killer: Du gibst einen Text rein, die KI markiert typische KI-Floskeln und schreibt sie in klare Worte um. Dazu gibt es ein kurzes Quiz.', tag: FREI },
     4: { titel: 'Klingt nach dir statt nach allen', text: 'Der Konkret-Macher: Deine KI fragt erst nach drei, vier Details, zum Beispiel für wen, ein echtes Beispiel und welches Ergebnis. Dann schreibt sie, und der Unterschied ist sofort sichtbar.', tag: FREI },
