@@ -17,14 +17,14 @@
   };
 </script>
 
-<title>KI-Adventskalender 2026 · 24 KI-Hacks zum Auspacken · Hanna Marzian</title>
+<title>KI-Adventskalender 2026 · In 24 Tagen KI im Griff · Hanna Marzian</title>
 <meta name="description" content="24 Türchen für Claude und ChatGPT: jeden Morgen ein kurzes Video und ein Werkzeug, das du behältst. Am 24. Dezember kennt deine KI dein Business, schreibt wie du und nimmt dir echte Arbeit ab." />
 <meta name="color-scheme" content="light" />
 <meta name="theme-color" content="#FFF4E7" />
 <!-- Link-Vorschau für WhatsApp, Instagram und Co. Läuft die Seite unter einer anderen Adresse, hier die Adresse anpassen. -->
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="de_DE" />
-<meta property="og:title" content="KI-Adventskalender 2026 · 24 KI-Hacks zum Auspacken" />
+<meta property="og:title" content="KI-Adventskalender 2026 · In 24 Tagen KI im Griff" />
 <meta property="og:description" content="In 24 Tagen zu einer KI, die dich kennt und für dich arbeitet: 24 Türchen für Claude und ChatGPT mit Hanna Marzian." />
 <meta property="og:url" content="https://ki-adventskalender-hanna.netlify.app/" />
 <meta property="og:image" content="https://ki-adventskalender-hanna.netlify.app/og-image.jpg" />
@@ -85,6 +85,7 @@
   h2 { font-size: clamp(44px, 6.4vw, 78px); }
   h3 { font-size: clamp(26px, 2.6vw, 30px); line-height: 1; }
   .center { text-align: center; }
+  .nw { white-space: nowrap; }
 
   .eyebrow {
     font: 700 12px/1.4 var(--body); letter-spacing: 0.22em; text-transform: uppercase;
@@ -121,39 +122,39 @@
 
   /* ---------- Hero ---------- */
   .hero {
-    padding-top: clamp(104px, 13vw, 150px); padding-bottom: clamp(64px, 8vw, 110px); overflow: hidden;
+    padding-top: clamp(100px, 10vw, 128px); padding-bottom: clamp(64px, 8vw, 110px); overflow: hidden;
     background:
       radial-gradient(55% 60% at 88% 42%, rgba(255, 117, 29, 0.20), transparent 70%),
       radial-gradient(35% 40% at 100% 0%, rgba(245, 7, 145, 0.10), transparent 70%),
       var(--cream);
   }
-  .hero-grid { display: grid; grid-template-areas: "head" "visual" "body"; gap: 26px; }
+  .hero-grid { display: grid; grid-template-areas: "head" "visual"; gap: 34px; }
   .hero-head { grid-area: head; }
-  .hero-body { grid-area: body; }
-  .hero-visual { grid-area: visual; position: relative; width: 100%; max-width: 320px; margin: 0 auto; }
+  .hero-visual { grid-area: visual; position: relative; width: 100%; max-width: 330px; margin: 0 auto; }
   @media (min-width: 960px) {
-    .hero-grid { grid-template-columns: 1.2fr 0.8fr; grid-template-areas: "head visual" "body visual"; column-gap: 48px; row-gap: 0; align-items: center; }
-    .hero-head { align-self: end; }
-    .hero-body { align-self: start; }
-    .hero-visual { max-width: 480px; }
+    .hero-grid { grid-template-columns: 1.15fr 0.85fr; grid-template-areas: "head visual"; column-gap: 56px; align-items: center; }
+    .hero-visual { max-width: 400px; margin-right: 0; }
   }
-  .hero h1 { color: var(--choc); font-size: clamp(56px, 9vw, 106px); }
-  .hero .acc { margin-top: 16px; text-wrap: balance; }
+  .hero h1 { color: var(--choc); font-size: clamp(58px, 8.4vw, 104px); }
+  .hero .acc { margin-top: 14px; text-wrap: balance; }
   .wk1 {
-    margin-top: 26px; padding: 18px 22px 16px; max-width: 34em;
-    background: #fff; border: 1.5px solid rgba(255, 117, 29, 0.45); border-radius: 18px;
-    box-shadow: 0 14px 34px -22px rgba(72, 32, 20, 0.45);
+    position: relative; z-index: 3; margin: -34px auto 0; max-width: 340px;
+    padding: 16px 18px 14px; background: #fff; border: 1.5px solid rgba(255, 117, 29, 0.45); border-radius: 18px;
+    box-shadow: 0 18px 40px -22px rgba(72, 32, 20, 0.55);
   }
-  .wk1-label { font-family: var(--head); font-size: 21px; letter-spacing: 0.06em; line-height: 1; color: var(--orange-ink); margin: 0 0 12px; }
-  .wk1 ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
-  .wk1 li { display: flex; gap: 12px; align-items: flex-start; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.3; color: var(--choc); }
+  @media (min-width: 960px) {
+    .wk1 { position: absolute; left: -16%; bottom: -2%; margin: 0; width: 330px; }
+  }
+  .wk1-label { font-family: var(--head); font-size: 19px; letter-spacing: 0.06em; line-height: 1; color: var(--orange-ink); margin: 0 0 10px; }
+  .wk1 ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .wk1 li { display: flex; gap: 10px; align-items: flex-start; font-size: 15.5px; line-height: 1.35; color: var(--choc); }
   .wk1 li b { font-weight: 700; }
-  .wk1 li .i { flex: none; width: 20px; height: 20px; margin-top: 2px; fill: var(--orange); }
-  .wk1-note { margin: 12px 0 0; font-size: 13px; color: var(--ink-soft); display: flex; align-items: center; gap: 6px; }
-  .wk1-note .i { width: 14px; height: 14px; fill: var(--gold); }
-  .lead { font-size: clamp(17px, 1.35vw, 19px); color: var(--ink-soft); max-width: 33em; margin: 26px 0 0; }
+  .wk1 li .i { flex: none; width: 18px; height: 18px; margin-top: 1px; fill: var(--orange); }
+  .wk1-note { margin: 10px 0 0; font-size: 12.5px; color: var(--ink-soft); display: flex; align-items: center; gap: 6px; }
+  .wk1-note .i { width: 13px; height: 13px; fill: var(--gold); }
+  .lead { font-size: clamp(17px, 1.35vw, 19px); color: var(--ink-soft); max-width: 33em; margin: 22px 0 0; }
   .hero .lead strong { color: var(--choc); font-weight: 600; }
-  .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 22px; margin-top: 30px; }
+  .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: 26px; }
   .cta-note { font-size: 14px; line-height: 1.5; color: var(--ink-soft); margin: 0; }
   .cta-note strong { color: var(--ink); font-weight: 600; }
   #countdown { display: block; font-weight: 600; color: var(--orange-ink); }
@@ -179,6 +180,7 @@
   .card h3 { margin-bottom: 12px; }
   .card p { margin: 0; color: var(--ink-soft); font-size: 16px; }
   .pain .closing { margin-top: 46px; }
+  .closing-text { margin: 18px auto 0; max-width: 32em; font-size: clamp(17px, 1.5vw, 19px); color: var(--ink-soft); }
 
   /* ---------- Heute und an Heiligabend ---------- */
   .change { background: var(--paper); }
@@ -410,6 +412,16 @@
   .faq-list summary:focus-visible { outline: 2px solid var(--choc); outline-offset: 4px; border-radius: 4px; }
   .faq-list details p { margin: 0 0 22px; color: var(--ink-soft); max-width: 48em; }
 
+  /* ---------- Stimmen ---------- */
+  .voices { background: var(--cream-2); }
+  .voices-intro { max-width: 36em; color: var(--ink-soft); margin: 18px 0 0; font-size: clamp(17px, 1.4vw, 18px); }
+  .voices-grid { display: grid; gap: 18px; margin-top: 40px; }
+  @media (min-width: 900px) { .voices-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: start; } }
+  .voice { margin: 0; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 26px 24px; border-top: 3px solid var(--orange); }
+  .voice blockquote { margin: 0; }
+  .voice blockquote p { margin: 0; font-family: var(--acc); font-style: italic; font-weight: 600; font-size: clamp(20px, 1.7vw, 22px); line-height: 1.35; color: var(--choc); }
+  .voice figcaption { margin-top: 18px; font: 700 11px/1.4 var(--body); letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange-ink); }
+
   /* ---------- Schluss ---------- */
   .final {
     text-align: center; color: var(--cream); overflow: hidden;
@@ -419,7 +431,8 @@
       linear-gradient(180deg, #6A2A17 0%, var(--choc) 60%, var(--choc-deep) 100%);
   }
   .final h2 { color: var(--cream); max-width: 12em; margin: 0 auto; }
-  .final .acc { color: var(--gold-soft); margin-top: 14px; }
+  .final .acc { color: var(--gold-soft); margin-top: 26px; text-wrap: balance; }
+  .final-text { max-width: 34em; margin: 24px auto 0; font-size: clamp(17px, 1.5vw, 19px); line-height: 1.65; color: rgba(255, 244, 231, 0.86); }
   .final .btn { margin-top: 34px; }
 
   /* ---------- Fußzeile ---------- */
@@ -484,21 +497,18 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-head">
-      <p class="eyebrow">KI-Adventskalender 2026 · Claude &amp; ChatGPT</p>
-      <!-- Alternative Hooks (jeweils große Zeile + kursive Zeile):
-           „Dieses Jahr packst du KI aus“ + „24 Türchen für Claude und ChatGPT“
-           „24 Türchen. 24 KI-Hacks.“ + „und an Heiligabend steht dein eigenes KI-System“
-           „Das kann Claude?!“ + „24 Türchen, nach denen du KI anders nutzt“ -->
-      <h1>24 KI-Hacks<br />zum Auspacken</h1>
-      <p class="acc">in 24 Tagen zu einer KI, die dich kennt und für dich arbeitet</p>
+      <p class="eyebrow">KI-Adventskalender 2026 · <span class="nw">Claude &amp; ChatGPT</span></p>
+      <!-- Alternative Headlines (große Zeile + kursive Zeile):
+           „Vom KI-Frust<br />zum KI-Flow“ + „24 KI-Hacks zum Auspacken“
+           „KI verstehen.<br />Türchen für Türchen.“ + „24 KI-Hacks zum Auspacken“
+           Vorher: „24 KI-Hacks<br />zum Auspacken“ + „in 24 Tagen zu einer KI, die dich kennt und für dich arbeitet“ -->
+      <h1>In 24 Tagen<br />KI im Griff</h1>
+      <p class="acc">24 KI-Hacks zum Auspacken</p>
       <svg class="swoosh" viewBox="0 0 330 14" aria-hidden="true"><path d="M3 10 C 95 2, 210 2, 327 7" /></svg>
-      <div class="wk1">
-        <p class="wk1-label">Gleich in der ersten Woche</p>
-        <ul>
-          <li><svg class="i" aria-hidden="true"><use href="#i-spark" /></svg><span><b>Instagram-Karussells</b> auf Knopfdruck bauen lassen</span></li>
-          <li><svg class="i" aria-hidden="true"><use href="#i-spark" /></svg><span><b>Reels schneiden lassen:</b> Pausen raus, Animationen drüber</span></li>
-        </ul>
-        <p class="wk1-note"><svg class="i" aria-hidden="true"><use href="#i-star" /></svg>mit Claude Pro, mehr dazu weiter unten</p>
+      <p class="lead"><strong>Für Selbstständige und Coaches, die bei KI endlich durchblicken wollen.</strong> Jeden Morgen öffnest du ein Türchen mit einem kurzen Video und einem Werkzeug, das du behältst. Schritt für Schritt, bis deine KI dich kennt und dir echte Arbeit abnimmt.</p>
+      <div class="cta-row">
+        <a class="btn btn-lg" data-checkout href="#angebot">Kalender sichern · <span data-preis>29</span>&nbsp;€</a>
+        <p class="cta-note"><strong>Tag 0 startet sofort nach dem Kauf.</strong><span id="countdown" hidden></span></p>
       </div>
     </div>
 
@@ -512,13 +522,13 @@
         <source srcset="kalender-box.webp" type="image/webp" />
         <img src="kalender-box.png" width="720" height="933" alt="Der KI-Adventskalender von Hanna Marzian: eine Box mit 24 Türchen, das erste leuchtet" fetchpriority="high" />
       </picture>
-    </div>
-
-    <div class="hero-body">
-      <p class="lead"><strong>Für Selbstständige und Coaches, die KI für Instagram, Texte und Orga nutzen wollen.</strong> Ab dem 1. Dezember öffnest du jeden Morgen ein Türchen mit einem kurzen Video und einem Werkzeug, das du behältst. Am 24. Dezember kennt deine KI dein Business, schreibt wie du und nimmt dir Stunden an Arbeit ab.</p>
-      <div class="cta-row">
-        <a class="btn btn-lg" data-checkout href="#angebot">Kalender sichern · <span data-preis>29</span>&nbsp;€</a>
-        <p class="cta-note"><strong>Tag 0 startet sofort nach dem Kauf.</strong><span id="countdown" hidden></span></p>
+      <div class="wk1">
+        <p class="wk1-label">Gleich in der ersten Woche</p>
+        <ul>
+          <li><svg class="i" aria-hidden="true"><use href="#i-spark" /></svg><span><b>Instagram-Karussells</b> auf Knopfdruck bauen lassen</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-spark" /></svg><span><b>Reels schneiden lassen:</b> Pausen raus, Animationen drüber</span></li>
+        </ul>
+        <p class="wk1-note"><svg class="i" aria-hidden="true"><use href="#i-star" /></svg>mit Claude Pro, mehr dazu weiter unten</p>
       </div>
     </div>
   </div>
@@ -527,27 +537,29 @@
 <!-- ===================== KENNST DU DAS ===================== -->
 <section class="pain">
   <div class="wrap">
-    <h2 class="reveal">Kennst du das?</h2>
+    <p class="eyebrow reveal">Kennst du das?</p>
+    <h2 class="reveal">Alle reden von KI.<br />Und du?</h2>
     <div class="cards3">
       <article class="card reveal">
         <span class="num">01</span>
-        <h3>Deine Texte klingen nach KI</h3>
-        <p>Du lässt dir einen Post schreiben, und schon beim ersten Satz merkt jeder, woher er kommt.</p>
+        <h3>Jede Woche ein neues Tool</h3>
+        <p>ChatGPT, Claude, Gemini, dazu jeden Tag neue Tipps auf Instagram. Du weißt gar nicht, wo du anfangen sollst.</p>
       </article>
       <article class="card reveal">
         <span class="num">02</span>
-        <h3>Deine besten Prompts sind weg</h3>
-        <p>Irgendwo in Chat Nummer 47. Und beim nächsten Mal erklärst du der KI wieder alles von vorn.</p>
+        <h3>Ausprobiert, aber nicht überzeugt</h3>
+        <p>Du hast es schon getestet. Das Ergebnis war okay, aber nicht das, was alle versprechen. Und leise fragst du dich, ob es an dir liegt.</p>
       </article>
       <article class="card reveal">
         <span class="num">03</span>
-        <h3>Du siehst Reels und denkst: Wie machen die das?</h3>
-        <p>Karussells auf Knopfdruck, Videos, die Claude für dich schneidet. Das geht, und du lernst es gleich in der ersten Woche.</p>
+        <h3>Und trotzdem diese Hoffnung</h3>
+        <p>Du spürst, dass KI dir den Alltag leichter machen könnte: Texte, Ideen, Orga, der ganze Kleinkram. Wenn du nur wüsstest, wie.</p>
       </article>
     </div>
     <div class="closing center reveal">
-      <p class="acc">Genau dafür gibt es diesen Kalender.</p>
+      <p class="acc">Das liegt nicht an dir.</p>
       <svg class="swoosh" viewBox="0 0 330 14" aria-hidden="true"><path d="M3 10 C 95 2, 210 2, 327 7" /></svg>
+      <p class="closing-text">Es fehlt nur jemand, der es dir Schritt für Schritt zeigt, in kleinen Häppchen, die in deinen Alltag passen. Genau dafür gibt es diesen Kalender.</p>
     </div>
   </div>
 </section>
@@ -715,7 +727,7 @@
         <ul>
           <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span>selbstständig bist, coachst oder ein kleines Business hast</li>
           <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span>für Instagram, Texte und Orga jede Woche mehr Stunden brauchst, als dir lieb ist</li>
-          <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span>Claude oder ChatGPT schon mal benutzt hast und mehr rausholen willst</li>
+          <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span>bei KI noch nicht ganz durchblickst, aber endlich mehr rausholen willst</li>
           <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span>lieber ausprobierst, als stundenlang Theorie zu lesen</li>
           <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span>dir im Dezember zehn Minuten am Tag für dich nimmst</li>
         </ul>
@@ -746,6 +758,30 @@
       <p>Am 24. Dezember soll deine KI dich kennen, nach dir klingen und dir echte Arbeit abnehmen. Ich freu mich, wenn du dabei bist.</p>
       <p class="acc sign">Hanna</p>
       <a class="insta" href="https://www.instagram.com/hanna.marzian/" target="_blank" rel="noopener">@hanna.marzian auf Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STIMMEN ===================== -->
+<!-- Quelle: Drive BUSINESS.EINFACH.SMART / Testimonials / Hanna / Testimonials (IMG_5995, IMG_6269, IMG_6007), ohne Namen wie in Hannas „-redacted“-Dateien; Tippfehler leicht korrigiert -->
+<section class="voices">
+  <div class="wrap">
+    <p class="eyebrow reveal">Stimmen aus meiner <span class="nw">30-Tage-Challenge</span></p>
+    <h2 class="reveal">So fühlt sich das an</h2>
+    <p class="voices-intro reveal">Auch in meiner Challenge ging es Tag für Tag, Schritt für Schritt mit KI. Das haben mir Teilnehmende zwischendurch geschrieben.</p>
+    <div class="voices-grid">
+      <figure class="voice reveal">
+        <blockquote><p>„Ich habe das Gefühl, hier mehr in 1,5 Tagen verstanden und gemacht zu haben als in den letzten 20 Jahren oder so! Und weißt du was: Das macht auch noch Spaß!“</p></blockquote>
+        <figcaption>Nach 1,5 Tagen</figcaption>
+      </figure>
+      <figure class="voice reveal">
+        <blockquote><p>„Deine professionelle, zugleich herzliche Art und deine schier unendliche Geduld machen den Unterschied. Mit deinen Beispielen und deiner Erfahrung hast du mir eine völlig neue Welt rund um ChatGPT und Instagram erschlossen.“</p></blockquote>
+        <figcaption>Nach den 30 Tagen</figcaption>
+      </figure>
+      <figure class="voice reveal">
+        <blockquote><p>„Heute ist erst Tag 5, und ich habe jetzt schon so viel Mehrwert mitnehmen können, einfach ein Wahnsinn. Ich habe schon einige Kurse gekauft, die enorm teuer waren. Was du hier für dieses Schnäppchen bietest, ist der Oberhammer.“</p></blockquote>
+        <figcaption>An Tag 5</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -847,8 +883,9 @@
 <!-- ===================== SCHLUSS ===================== -->
 <section class="final">
   <div class="wrap center">
-    <h2 class="reveal">Am 1. Dezember geht das erste Türchen auf</h2>
-    <p class="acc reveal">Ich freu mich auf dich.</p>
+    <h2 class="reveal">Stell dir vor, es ist Heiligabend</h2>
+    <p class="final-text reveal">Der Baum leuchtet, das Handy liegt mal zur Seite, und KI fühlt sich zum ersten Mal nicht mehr nach Baustelle an. Deine KI kennt dich, schreibt wie du und nimmt dir Arbeit ab. Du weißt, welches Werkzeug du wofür nimmst, und hast richtig Lust auf das, was du im neuen Jahr damit machst. Dafür hast du dir nur jeden Morgen zehn Minuten genommen.</p>
+    <p class="acc reveal">Am 1. Dezember geht das erste Türchen auf. Ich freu mich auf dich.</p>
     <a class="btn btn-lg reveal" data-checkout href="#angebot">Kalender sichern · <span data-preis>29</span>&nbsp;€</a>
   </div>
 </section>
