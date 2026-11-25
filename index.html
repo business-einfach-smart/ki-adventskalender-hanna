@@ -122,37 +122,37 @@
 
   /* ---------- Hero ---------- */
   .hero {
-    padding-top: clamp(100px, 10vw, 128px); padding-bottom: clamp(64px, 8vw, 110px); overflow: hidden;
+    padding-top: clamp(92px, 8.6vw, 118px); padding-bottom: clamp(64px, 8vw, 110px); overflow: hidden;
     background:
       radial-gradient(55% 60% at 88% 42%, rgba(255, 117, 29, 0.20), transparent 70%),
       radial-gradient(35% 40% at 100% 0%, rgba(245, 7, 145, 0.10), transparent 70%),
       var(--cream);
   }
-  .hero-grid { display: grid; grid-template-areas: "head" "visual"; gap: 34px; }
+  .hero-grid { display: grid; grid-template-areas: "head" "wk1" "visual"; gap: 30px; }
   .hero-head { grid-area: head; }
   .hero-visual { grid-area: visual; position: relative; width: 100%; max-width: 330px; margin: 0 auto; }
   @media (min-width: 960px) {
     .hero-grid { grid-template-columns: 1.15fr 0.85fr; grid-template-areas: "head visual"; column-gap: 56px; align-items: center; }
     .hero-visual { max-width: 400px; margin-right: 0; }
+    .hero-grid .wk1 { grid-area: visual; align-self: end; justify-self: start; width: 330px; margin: 0 0 3% -8%; position: relative; z-index: 3; }
   }
-  .hero h1 { color: var(--choc); font-size: clamp(58px, 8.4vw, 104px); }
+  .hero h1 { color: var(--choc); font-size: clamp(54px, 7.6vw, 98px); }
   .hero .acc { margin-top: 14px; text-wrap: balance; }
   .wk1 {
-    position: relative; z-index: 3; margin: -34px auto 0; max-width: 340px;
-    padding: 16px 18px 14px; background: #fff; border: 1.5px solid rgba(255, 117, 29, 0.45); border-radius: 18px;
-    box-shadow: 0 18px 40px -22px rgba(72, 32, 20, 0.55);
+    grid-area: wk1; margin: 0; max-width: 35em; padding: 14px 18px 12px;
+    background: #fff; border: 1.5px solid rgba(255, 117, 29, 0.45); border-radius: 16px;
+    box-shadow: 0 16px 36px -24px rgba(72, 32, 20, 0.55);
   }
-  @media (min-width: 960px) {
-    .wk1 { position: absolute; left: -16%; bottom: -2%; margin: 0; width: 330px; }
-  }
-  .wk1-label { font-family: var(--head); font-size: 19px; letter-spacing: 0.06em; line-height: 1; color: var(--orange-ink); margin: 0 0 10px; }
-  .wk1 ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-  .wk1 li { display: flex; gap: 10px; align-items: flex-start; font-size: 15.5px; line-height: 1.35; color: var(--choc); }
+  .wk1-label { font-family: var(--head); font-size: 19px; letter-spacing: 0.06em; line-height: 1; color: var(--orange-ink); margin: 0 0 9px; }
+  .wk1 ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
+  .wk1 li.later { margin-top: 3px; padding-top: 9px; border-top: 1px dashed rgba(184, 65, 15, 0.3); }
+  .wk1 .star { width: 14px; height: 14px; fill: var(--gold); vertical-align: -0.1em; }
+  .wk1 li { display: flex; gap: 10px; align-items: flex-start; font-size: 15.5px; line-height: 1.38; color: var(--choc); }
   .wk1 li b { font-weight: 700; }
   .wk1 li .i { flex: none; width: 18px; height: 18px; margin-top: 1px; fill: var(--orange); }
   .wk1-note { margin: 10px 0 0; font-size: 12.5px; color: var(--ink-soft); display: flex; align-items: center; gap: 6px; }
   .wk1-note .i { width: 13px; height: 13px; fill: var(--gold); }
-  .lead { font-size: clamp(17px, 1.35vw, 19px); color: var(--ink-soft); max-width: 33em; margin: 22px 0 0; }
+  .lead { font-size: clamp(17px, 1.35vw, 19px); color: var(--ink-soft); max-width: 33em; margin: 18px 0 0; }
   .hero .lead strong { color: var(--choc); font-weight: 600; }
   .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: 26px; }
   .cta-note { font-size: 14px; line-height: 1.5; color: var(--ink-soft); margin: 0; }
@@ -181,6 +181,21 @@
   .card p { margin: 0; color: var(--ink-soft); font-size: 16px; }
   .pain .closing { margin-top: 46px; }
   .closing-text { margin: 18px auto 0; max-width: 32em; font-size: clamp(17px, 1.5vw, 19px); color: var(--ink-soft); }
+
+  /* ---------- Erklärung Ordner ---------- */
+  .explain { margin-top: 56px; display: grid; gap: 26px; align-items: center; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(22px, 3vw, 36px); }
+  @media (min-width: 900px) { .explain { grid-template-columns: 1fr 1fr; gap: 40px; } }
+  .explain h3 { margin-bottom: 12px; }
+  .explain-text p { color: var(--ink-soft); font-size: 16.5px; margin: 0 0 10px; }
+  .explain-text p:last-child { margin-bottom: 0; }
+  .tree { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; box-shadow: 0 14px 34px -26px rgba(72, 32, 20, 0.5); }
+  .tree-title { font: 700 11px/1.3 var(--body); letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange-ink); margin: 0 0 12px; }
+  .tree-row { display: flex; gap: 10px; align-items: flex-start; padding: 7px 0 7px 26px; position: relative; font-size: 15px; line-height: 1.4; color: var(--choc); }
+  .tree-row.root { padding-left: 0; font-size: 16px; }
+  .tree-row:not(.root)::before { content: ""; position: absolute; left: 9px; top: 0; bottom: 50%; width: 12px; border-left: 1.5px solid rgba(184, 65, 15, 0.35); border-bottom: 1.5px solid rgba(184, 65, 15, 0.35); border-bottom-left-radius: 4px; }
+  .tree-row b { font-weight: 700; }
+  .tree-row span { display: block; color: var(--ink-soft); font-size: 14px; }
+  .ti { flex: none; width: 18px; height: 18px; margin-top: 1px; color: var(--orange); }
 
   /* ---------- Heute und an Heiligabend ---------- */
   .change { background: var(--paper); }
@@ -256,6 +271,11 @@
   .stage-days { font: 700 11px/1 var(--body); letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255, 244, 231, 0.62); }
   .stage h3 { font-size: 26px; margin: 12px 0 8px; }
   .stage p { font-size: 15px; margin: 0; }
+  .stage-list { list-style: none; margin: 14px 0 0; padding: 12px 0 0; border-top: 1px solid rgba(233, 172, 76, 0.22); display: grid; gap: 7px; }
+  .stage-list li { position: relative; padding-left: 16px; font-size: 14.5px; line-height: 1.4; color: rgba(255, 244, 231, 0.9); }
+  .stage-list li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 6px; height: 6px; border-radius: 50%; background: var(--sc); }
+  .stage-list .star { width: 13px; height: 13px; fill: var(--gold); vertical-align: -0.1em; }
+
 
   .cal { display: grid; gap: 26px; }
   @media (min-width: 960px) { .cal { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 44px; align-items: start; } }
@@ -318,6 +338,8 @@
   .glance .i { fill: var(--gold); align-self: center; }
 
   .teasers { margin-top: 64px; }
+  .teasers-note { margin: 40px 0 0; font-size: 15px; color: rgba(255, 244, 231, 0.72); }
+  .teasers-note .i { width: 14px; height: 14px; fill: var(--gold); vertical-align: -0.1em; }
   .teasers h3 { font-size: clamp(30px, 3.2vw, 40px); margin-bottom: 8px; }
   .teasers > p { margin-bottom: 22px; }
   .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
@@ -393,7 +415,9 @@
   .checks li strong { color: var(--cream); font-weight: 600; }
   .checks .mark { position: absolute; left: 0; top: 1px; width: 24px; height: 24px; border-radius: 50%; background: var(--gold); color: var(--choc); display: grid; place-items: center; }
   .checks .mark .i { width: 14px; height: 14px; }
+  .offer-card .value-line { margin: 26px 0 10px; color: var(--gold-soft); font-style: italic; font-weight: 600; font-family: var(--acc); font-size: clamp(21px, 1.9vw, 24px); line-height: 1.3; }
   .checks .star-inline { width: 15px; height: 15px; fill: var(--gold); vertical-align: -0.1em; margin-left: 2px; }
+  .special { margin: 22px 0 4px; display: inline-block; padding: 5px 12px; border-radius: 999px; background: var(--gA); color: #fff; font: 700 12px/1.2 var(--body); letter-spacing: 0.14em; text-transform: uppercase; }
   .price { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 24px; }
   .amount { font-family: var(--head); font-size: clamp(68px, 8vw, 96px); line-height: 0.85; color: var(--cream); }
   .price-note { font-size: 14px; color: rgba(255, 244, 231, 0.72); }
@@ -480,6 +504,8 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.2l2.95 6.2 6.8.82-5.02 4.68 1.31 6.72L12 17.3l-6.04 3.32 1.31-6.72L2.25 9.22l6.8-.82z"/></symbol>
   <symbol id="i-spark" viewBox="0 0 64 64"><path d="M32 4C34 24 40 30 60 32 40 34 34 40 32 60 30 40 24 34 4 32 24 30 30 24 32 4Z"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h4.2l2 2.2h8.8A1.5 1.5 0 0 1 21 8.7v9.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z" fill="currentColor"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M6.5 3h7.2L19 8.3v11.2A1.5 1.5 0 0 1 17.5 21h-11A1.5 1.5 0 0 1 5 19.5v-15A1.5 1.5 0 0 1 6.5 3z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M13.5 3v5.5H19" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </svg>
@@ -505,12 +531,22 @@
       <h1>In 24 Tagen<br />KI im Griff</h1>
       <p class="acc">24 KI-Hacks zum Auspacken</p>
       <svg class="swoosh" viewBox="0 0 330 14" aria-hidden="true"><path d="M3 10 C 95 2, 210 2, 327 7" /></svg>
-      <p class="lead"><strong>Für Selbstständige und Coaches, die bei KI endlich durchblicken wollen.</strong> Jeden Morgen öffnest du ein Türchen mit einem kurzen Video und einem Werkzeug, das du behältst. Schritt für Schritt, bis deine KI dich kennt und dir echte Arbeit abnimmt.</p>
+      <p class="lead"><strong>Für Selbstständige und Coaches, die bei KI endlich durchblicken wollen.</strong> Den Unterschied merkst du schon nach den ersten Tagen: Karussells, die richtig gut aussehen, in Minuten statt Stunden, und Reels, die Claude für dich schneidet. Jeden Morgen ein Türchen mit Video und Werkzeug, das du behältst.</p>
       <div class="cta-row">
         <a class="btn btn-lg" data-checkout href="#angebot">Kalender sichern · <span data-preis>37</span>&nbsp;€</a>
         <p class="cta-note"><strong>Tag 0 startet sofort nach dem Kauf.</strong><span id="countdown" hidden></span></p>
       </div>
     </div>
+
+    <div class="wk1">
+      <p class="wk1-label">Schon nach den ersten Tagen</p>
+      <ul>
+        <li><svg class="i" aria-hidden="true"><use href="#i-spark" /></svg><span><b>Ab Tag 1: Karussells in Minuten,</b> die richtig gut aussehen, in deinen Farben&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-spark" /></svg><span><b>Ab Tag 2: Reels, die Claude für dich schneidet,</b> Pausen raus, Animationen drüber&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></li>
+        <li class="later"><svg class="i" aria-hidden="true"><use href="#i-spark" /></svg><span><b>Später zum Beispiel:</b> Belege fürs Finanzamt sortieren lassen, statt stundenlang Zettel zu wälzen&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></li>
+      </ul>
+      <p class="wk1-note"><svg class="i" aria-hidden="true"><use href="#i-star" /></svg>mit Claude Pro, mehr dazu weiter unten</p>
+      </div>
 
     <div class="hero-visual">
       <div class="glow" aria-hidden="true"></div>
@@ -522,14 +558,6 @@
         <source srcset="kalender-box.webp" type="image/webp" />
         <img src="kalender-box.png" width="720" height="933" alt="Der KI-Adventskalender von Hanna Marzian: eine Box mit 24 Türchen, das erste leuchtet" fetchpriority="high" />
       </picture>
-      <div class="wk1">
-        <p class="wk1-label">Gleich in der ersten Woche</p>
-        <ul>
-          <li><svg class="i" aria-hidden="true"><use href="#i-spark" /></svg><span><b>Instagram-Karussells</b> auf Knopfdruck bauen lassen</span></li>
-          <li><svg class="i" aria-hidden="true"><use href="#i-spark" /></svg><span><b>Reels schneiden lassen:</b> Pausen raus, Animationen drüber</span></li>
-        </ul>
-        <p class="wk1-note"><svg class="i" aria-hidden="true"><use href="#i-star" /></svg>mit Claude Pro, mehr dazu weiter unten</p>
-      </div>
     </div>
   </div>
 </section>
@@ -582,9 +610,9 @@
         <p class="vs-after"><span class="vs-tag">Am 24. Dezember</span><span class="vs-check" aria-hidden="true"><svg class="i"><use href="#i-check" /></svg></span><span>Deine Texte klingen nach dir, weil deine KI weiß, wie du schreibst und welche Floskeln rausfliegen.</span></p>
       </li>
       <li class="vs-row reveal">
-        <p class="vs-before"><span class="vs-tag">Heute</span>Ein Karussell kostet dich einen halben Tag in Canva.</p>
+        <p class="vs-before"><span class="vs-tag">Heute</span>Ein Karussell kostet dich einen halben Tag in Canva und sieht am Ende trotzdem nicht so aus, wie du es willst.</p>
         <span class="vs-arrow" aria-hidden="true"><svg class="i"><use href="#i-arrow" /></svg></span>
-        <p class="vs-after"><span class="vs-tag">Am 24. Dezember</span><span class="vs-check" aria-hidden="true"><svg class="i"><use href="#i-check" /></svg></span><span>Du gibst ein Thema ein, und Claude baut dir das Karussell.&nbsp;<svg class="i vs-star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></p>
+        <p class="vs-after"><span class="vs-tag">Am 24. Dezember</span><span class="vs-check" aria-hidden="true"><svg class="i"><use href="#i-check" /></svg></span><span>Du gibst ein Thema ein, und Claude baut dir ein Karussell, das richtig gut aussieht, in deinen Farben.&nbsp;<svg class="i vs-star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></p>
       </li>
       <li class="vs-row reveal">
         <p class="vs-before"><span class="vs-tag">Heute</span>Dein Rohvideo liegt ungeschnitten auf dem Handy.</p>
@@ -627,6 +655,20 @@
         <p>Alle Werkzeuge liegen in deinem Ordner. Deine KI schreibt wie du und übernimmt Aufgaben, für die du bisher Stunden gebraucht hast: Karussells, Reels, Texte und dein Postfach.</p>
       </li>
     </ol>
+    <div class="explain reveal">
+      <div class="explain-text">
+        <h3>Was heißt eigentlich „deine KI, die dich kennt“?</h3>
+        <p>Ganz einfach: ein Ordner auf deinem Rechner. Darin liegt alles, was Claude über dich und deine Arbeit wissen muss, und Claude schaut bei jeder Aufgabe hinein. Deshalb musst du dich nicht mehr erklären, und die Ergebnisse klingen nach dir.</p>
+        <p>Jedes Türchen legt etwas dazu. Ohne Abo baust du dasselbe als Projekt in Claude.</p>
+      </div>
+      <div class="tree" role="img" aria-label="So sieht dein Ordner am 24. Dezember aus: Adventskalender mit den Ordnern Wissen und Türchen 1 bis 24 und der Datei CLAUDE.md">
+        <p class="tree-title">Dein Ordner am 24. Dezember</p>
+        <div class="tree-row root"><svg class="ti" aria-hidden="true"><use href="#i-folder" /></svg><b>Adventskalender</b></div>
+        <div class="tree-row"><svg class="ti" aria-hidden="true"><use href="#i-folder" /></svg><div><b>Wissen</b><span>wer du bist, was du anbietest, für wen du arbeitest, wie du klingst</span></div></div>
+        <div class="tree-row"><svg class="ti" aria-hidden="true"><use href="#i-folder" /></svg><div><b>Türchen 1 bis 24</b><span>deine Werkzeuge und Ergebnisse, Tag für Tag</span></div></div>
+        <div class="tree-row"><svg class="ti" aria-hidden="true"><use href="#i-file" /></svg><div><b>CLAUDE.md</b><span>deine Spielregeln, damit Claude immer gleich gut arbeitet</span></div></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -641,22 +683,44 @@
       <div class="stage reveal" style="--sc:#E9AC4C">
         <div class="stage-top"><span class="stage-n">01</span><span class="stage-days">Tag 0 bis 6</span></div>
         <h3>Einrichten &amp; Grundlagen</h3>
-        <p>Dein KI-Ordner, Karussells, Reels und Texte, die nach dir klingen.</p>
+        <p>Danach kennt dich deine KI, und deine Inhalte sehen nach dir aus.</p>
+        <ul class="stage-list">
+          <li>Dein KI-Ordner, der dich kennt</li>
+          <li>Karussells und Reels mit Claude&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></li>
+          <li>Texte ohne KI-Floskeln</li>
+          <li>Dein Second Brain zum Nikolaus&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></li>
+        </ul>
       </div>
       <div class="stage reveal" style="--sc:#FF751D">
         <div class="stage-top"><span class="stage-n">02</span><span class="stage-days">Tag 7 bis 13</span></div>
         <h3>Clever nutzen</h3>
-        <p>KI im Browser, das richtige Modell für jede Aufgabe und Grafiken in deinen Farben.</p>
+        <p>Danach weißt du, welches Werkzeug du wofür nimmst.</p>
+        <ul class="stage-list">
+          <li>Claude arbeitet in deinem Browser mit&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></li>
+          <li>Das richtige Modell, damit dein Limit länger hält</li>
+          <li>Grafiken in deinen Markenfarben</li>
+        </ul>
       </div>
       <div class="stage reveal" style="--sc:#FF3F63">
         <div class="stage-top"><span class="stage-n">03</span><span class="stage-days">Tag 14 bis 19</span></div>
         <h3>Wow, das geht?!</h3>
-        <p>Mini-Apps, ein aufgeräumtes Postfach und dein Rechner, gesteuert vom Handy.</p>
+        <p>Danach nimmt dir KI echte Büroarbeit ab.</p>
+        <ul class="stage-list">
+          <li>Belege fürs Finanzamt sortieren&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></li>
+          <li>Dein Postfach in drei Stapel</li>
+          <li>Ein eigener Preisrechner als Mini-App</li>
+          <li>Deinen Rechner vom Handy steuern&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></li>
+        </ul>
       </div>
       <div class="stage reveal" style="--sc:#F50791">
         <div class="stage-top"><span class="stage-n">04</span><span class="stage-days">Tag 20 bis 24</span></div>
         <h3>Deine persönliche KI</h3>
-        <p>Deine KI kennt dich, schreibt wie du und meldet sich morgens von selbst.</p>
+        <p>Danach arbeitet deine KI so, wie du arbeitest.</p>
+        <ul class="stage-list">
+          <li>Texte in deiner eigenen Tonalität</li>
+          <li>Eine KI, die sich morgens von selbst meldet</li>
+          <li>Am 24.: alle Werkzeuge als Paket zum Mitnehmen</li>
+        </ul>
       </div>
     </div>
 
@@ -678,20 +742,7 @@
       </div>
     </div>
 
-    <div class="teasers reveal">
-      <h3>Außerdem hinter den Türchen</h3>
-      <p>Was genau an welchem Tag kommt, bleibt eine Überraschung. Ein paar Ausblicke:</p>
-      <ul class="chips">
-        <li>Deinen Rechner vom Handy aus steuern <svg class="i" role="img" aria-label="Highlight mit Claude Pro"><use href="#i-star" /></svg></li>
-        <li>Belege fürs Finanzamt sortieren lassen <svg class="i" role="img" aria-label="Highlight mit Claude Pro"><use href="#i-star" /></svg></li>
-        <li>Dein Postfach in drei Stapel sortieren</li>
-        <li>Einen eigenen Preisrechner als Mini-App bauen</li>
-        <li>Dein schwierigstes Kundengespräch üben</li>
-        <li>Grafiken in deinen Markenfarben</li>
-        <li>Eine KI, die sich jeden Morgen von selbst meldet</li>
-        <li>Am 24.: alle Werkzeuge in einem Paket zum Mitnehmen</li>
-      </ul>
-    </div>
+    <p class="teasers-note reveal">Was genau an welchem Tag kommt, bleibt eine Überraschung. <svg class="i" aria-hidden="true"><use href="#i-star" /></svg> = Highlight mit Claude Pro</p>
   </div>
 </section>
 
@@ -815,15 +866,17 @@
       <ul class="checks">
         <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>Tag 0 sofort nach dem Kauf:</strong> Deine KI lernt dich kennen, damit du dich nie wieder erklären musst</li>
         <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>24 Türchen</strong> vom 1. bis 24. Dezember, jeden Morgen per Mail: zehn Minuten am Tag, die du sofort merkst</li>
-        <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>Gleich in Woche 1:</strong> Karussells und Reels, die Claude für dich baut <svg class="i star-inline" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></li>
+        <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>Gleich in Woche 1:</strong> Karussells, die richtig gut aussehen, und Reels, die Claude für dich schneidet <svg class="i star-inline" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></li>
         <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>24 Werkzeuge, die du behältst:</strong> fertige Vorlagen für Claude und ChatGPT, die du immer wieder nutzt</li>
         <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>Kurze Videos</strong>, in denen du genau siehst, was ich klicke, ohne Fachchinesisch</li>
         <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>Alle Türchen dauerhaft im Mitgliederbereich</strong>, falls du mal einen Tag verpasst</li>
         <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>Für die Warteliste:</strong> ein Extra-Türchen am 25. Dezember</li>
       </ul>
+      <p class="value-line">Allein Karussell und Reel sparen dir jede Woche Stunden. Dazu kommen 22 weitere Werkzeuge, die du behältst.</p>
+      <p class="special">Weihnachtsspecial</p>
       <div class="price">
         <span class="amount"><span data-preis>37</span>&nbsp;€</span>
-        <span class="price-note">einmalig, inkl. MwSt.<br />Das sind rund <span data-pro-tuer>1,50</span>&nbsp;€ pro Türchen.</span>
+        <span class="price-note">einmalig, inkl. MwSt.<br />Das sind rund <span data-pro-tuer>1,50</span>&nbsp;€ pro Türchen<span data-gluehwein>, weniger als ein Glühwein</span>.</span>
       </div>
       <a class="btn btn-lg" data-checkout href="#angebot">Jetzt Kalender sichern</a>
       <p class="fine">Du zahlst einmal über alfima und bekommst sofort Zugang zu Tag 0. Der Kalender ist kein Abo.</p>
@@ -918,7 +971,10 @@
   document.querySelectorAll('[data-preis]').forEach(function (el) { el.textContent = preis; });
   var proTuer = (Math.round(parseFloat(preis.replace(',', '.')) / 24 * 10) / 10).toFixed(2).replace('.', ',');
   if (proTuer !== 'NaN') document.querySelectorAll('[data-pro-tuer]').forEach(function (el) { el.textContent = proTuer; });
+  // „weniger als ein Glühwein“ nur, solange ein Türchen unter 3 € kostet
+  if (!(parseFloat(proTuer.replace(',', '.')) < 3)) document.querySelectorAll('[data-gluehwein]').forEach(function (el) { el.remove(); });
   document.querySelectorAll('[data-checkout]').forEach(function (a) { a.setAttribute('href', link || '#angebot'); });
+
 
   /* ---------- Countdown bis Türchen 1 (1.12.2026, 0 Uhr deutscher Zeit) ---------- */
   var cd = document.getElementById('countdown');
@@ -941,7 +997,7 @@
   var PRO = 'Claude Pro + Desktop-App';
   var OFFEN = {
     0: { titel: 'Dein KI-Ordner', text: 'Wir richten dein Zuhause für alle 24 Werkzeuge ein, und deine KI lernt dich kennen: wofür du sie nutzt, für wen du schreibst und wie du klingst. Mit Claude Pro als Ordner auf deinem Rechner, ohne Abo als Projekt in Claude.', tag: 'Mit und ohne Abo' },
-    1: { titel: 'Karussell auf Knopfdruck', stern: true, text: 'Du gibst ein Thema ein, und Claude baut dir ein fertiges Instagram-Karussell. Dafür bekommst du meinen Karussell-Skill, eine Anleitung, die Claude diese Aufgabe dauerhaft beibringt. Die Farben änderst du mit einem Satz.', tag: PRO },
+    1: { titel: 'Karussell auf Knopfdruck', stern: true, text: 'Du gibst ein Thema ein, und Claude baut dir ein Instagram-Karussell, das richtig gut aussieht. Dafür bekommst du meinen Karussell-Skill, eine Anleitung, die Claude diese Aufgabe dauerhaft beibringt. Die Farben änderst du mit einem Satz.', tag: PRO },
     2: { titel: 'Dein Reel, geschnitten von Claude', stern: true, text: 'Rohvideo rein, Pausen raus, Animationen drüber. Mein Video-Skill übernimmt den Schnitt und richtet die nötigen Programme selbst ein.', tag: PRO },
     3: { titel: 'Warum klingt das nach KI?', text: 'Der Floskel-Killer: Du gibst einen Text rein, die KI markiert typische KI-Floskeln und schreibt sie in klare Worte um. Dazu gibt es ein kurzes Quiz.', tag: FREI },
     4: { titel: 'Klingt nach dir statt nach allen', text: 'Der Konkret-Macher: Deine KI fragt erst nach drei, vier Details, zum Beispiel für wen, ein echtes Beispiel und welches Ergebnis. Dann schreibt sie, und der Unterschied ist sofort sichtbar.', tag: FREI },
