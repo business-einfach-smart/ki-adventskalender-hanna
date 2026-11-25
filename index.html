@@ -132,10 +132,18 @@
   .hero-head { grid-area: head; }
   .hero-visual { grid-area: visual; position: relative; width: 100%; max-width: 330px; margin: 0 auto; }
   @media (min-width: 960px) {
-    .hero-grid { grid-template-columns: 1.15fr 0.85fr; grid-template-areas: "head visual" "head wk1"; grid-template-rows: auto 1fr; column-gap: 56px; row-gap: 18px; align-items: start; }
-    .hero-visual { max-width: 330px; margin: 0 auto; }
-    .hero-grid .wk1 { grid-area: wk1; justify-self: center; width: 100%; max-width: 380px; position: relative; z-index: 3; }
+    /* Rechte Spalte ist so hoch wie die Textspalte: Kalender-Oberkante auf Höhe der Dachzeile,
+       Kasten-Unterkante auf Höhe der letzten Zeile unter dem Button. Der Kasten liegt über dem
+       Fuß der Box (unter dem Türchen-Raster). Die Prozentwerte sind auf die Grafik (720 × 933 px)
+       abgestimmt: Box-Oberkante bei y 95, Schnittkante bei y 614. */
+    .hero-grid { grid-template-columns: 1.15fr 0.85fr; grid-template-areas: "head visual" "head wk1"; grid-template-rows: 1fr auto; column-gap: 56px; row-gap: 0; align-items: stretch; }
     .hero-head { align-self: start; }
+    .hero-visual { max-width: none; width: auto; margin: 0; min-height: 300px; }
+    .hero-grid .hero-visual picture { position: absolute; top: -18.3%; bottom: -61.5%; left: -40%; right: -40%; display: flex; justify-content: center; }
+    .hero-grid .hero-visual img { height: 100%; width: auto; max-width: none; }
+    .hero-grid .hero-visual picture { animation-name: float-sm; }
+    .hero-grid .hero-visual .glow { inset: 0 10% -10% 10%; }
+    .hero-grid .wk1 { grid-area: wk1; max-width: none; position: relative; z-index: 3; box-shadow: 0 22px 44px -26px rgba(72, 32, 20, 0.6); }
   }
   .hero h1 { color: var(--choc); font-size: clamp(54px, 7.6vw, 98px); }
   .hero .acc { margin-top: 14px; text-wrap: balance; }
@@ -150,6 +158,7 @@
   .wk1 .star { width: 14px; height: 14px; fill: var(--gold); vertical-align: -0.1em; }
   .wk1 li { display: flex; gap: 10px; align-items: flex-start; font-size: 15.5px; line-height: 1.38; color: var(--choc); }
   .wk1 li b { font-weight: 700; }
+  .wk1 li > span { text-wrap: pretty; }
   .wk1 li .i { flex: none; width: 18px; height: 18px; margin-top: 1px; fill: var(--orange); }
   .wk1-note { margin: 10px 0 0; font-size: 12.5px; color: var(--ink-soft); display: flex; align-items: center; gap: 6px; }
   .wk1-note .i { width: 13px; height: 13px; fill: var(--gold); }
@@ -165,6 +174,7 @@
   }
   .hero-visual picture { position: relative; z-index: 1; display: block; animation: float 7s ease-in-out infinite; }
   @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes float-sm { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
   .spark { position: absolute; z-index: 2; fill: var(--gold); width: 16px; height: 16px; animation: twinkle 4.5s ease-in-out infinite; }
   .spark.s1 { top: 4%; left: 6%; }
   .spark.s2 { top: 16%; right: 0; width: 24px; height: 24px; animation-delay: 1.3s; }
@@ -388,18 +398,6 @@
   .insta { font-weight: 600; font-size: 15px; color: var(--orange-ink); text-decoration: none; border-bottom: 1px solid currentColor; }
   .insta:hover { color: var(--choc); }
 
-  /* ---------- Warteliste ---------- */
-  .waitlist { padding-top: 0; }
-  .wl {
-    display: flex; gap: 20px; align-items: flex-start; padding: 26px 28px; border-radius: 22px;
-    border: 2px solid transparent; background: linear-gradient(var(--paper), var(--paper)) padding-box, var(--gA) border-box;
-  }
-  @media (max-width: 560px) { .wl { flex-direction: column; gap: 16px; padding: 24px 22px; } }
-  .wl-ico { flex: none; width: 54px; height: 54px; border-radius: 50%; background: var(--gA); display: grid; place-items: center; }
-  .wl-ico .i { width: 26px; height: 26px; fill: var(--cream); }
-  .wl h3 { margin-bottom: 8px; }
-  .wl p { margin: 0; color: var(--ink-soft); }
-
   /* ---------- Angebot ---------- */
   .offer-grid { display: grid; gap: 34px; align-items: center; }
   @media (min-width: 960px) { .offer-grid { grid-template-columns: 0.8fr 1.2fr; gap: 64px; } }
@@ -495,7 +493,7 @@
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .js .reveal { opacity: 1; transform: none; transition: none; }
-    .hero-visual picture, .spark { animation: none; }
+    .hero-visual picture, .hero-grid .hero-visual picture, .spark { animation: none; }
     .btn, .door { transition: none; }
   }
 </style>
@@ -542,12 +540,11 @@
     <div class="wk1">
       <p class="wk1-label">Schon nach den ersten Tagen</p>
       <ul>
-        <li><svg class="i" aria-hidden="true"><use href="#i-spark" /></svg><span><b>Ab Tag 1: Karussells in Minuten,</b> die richtig gut aussehen, in deinen <span class="nw">Farben&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></span></li>
-        <li><svg class="i" aria-hidden="true"><use href="#i-spark" /></svg><span><b>Ab Tag 2: Reels, die Claude für dich schneidet,</b> Pausen raus, Animationen <span class="nw">drüber&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></span></li>
-        <li class="later"><svg class="i" aria-hidden="true"><use href="#i-spark" /></svg><span><b>Später zum Beispiel:</b> Belege fürs Finanzamt sortieren lassen, statt stundenlang Zettel zu <span class="nw">wälzen&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></span></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-spark" /></svg><span><b>Ab Tag 1: Karussells in Minuten,</b> die richtig gut aussehen, in deinen Farben</span></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-spark" /></svg><span><b>Ab Tag 2: Reels, die Claude für dich schneidet,</b> Pausen raus, Animationen drüber</span></li>
+        <li class="later"><svg class="i" aria-hidden="true"><use href="#i-spark" /></svg><span><b>Später zum Beispiel:</b> Belege fürs Finanzamt sortieren lassen, statt stundenlang Zettel zu&nbsp;wälzen</span></li>
       </ul>
-      <p class="wk1-note"><svg class="i" aria-hidden="true"><use href="#i-star" /></svg>mit Claude Pro, mehr dazu weiter unten</p>
-      </div>
+    </div>
 
     <div class="hero-visual">
       <div class="glow" aria-hidden="true"></div>
@@ -841,19 +838,6 @@
   </div>
 </section>
 
-<!-- ===================== WARTELISTE ===================== -->
-<section class="waitlist">
-  <div class="wrap narrow">
-    <div class="wl reveal">
-      <div class="wl-ico" aria-hidden="true"><svg class="i"><use href="#i-star" /></svg></div>
-      <div>
-        <h3>Du stehst auf meiner Warteliste?</h3>
-        <p>Dann wartet am 25. Dezember noch ein Extra-Türchen auf dich. Kauf einfach mit derselben E-Mail-Adresse, mit der du dich eingetragen hast, dann kommt es automatisch zu dir.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ===================== ANGEBOT ===================== -->
 <section id="angebot" class="dark">
   <div class="wrap offer-grid">
@@ -874,7 +858,6 @@
         <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>24 Werkzeuge, die du behältst:</strong> fertige Vorlagen für Claude und ChatGPT, die du immer wieder nutzt</li>
         <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>Kurze Videos</strong>, in denen du genau siehst, was ich klicke, ohne Fachchinesisch</li>
         <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>Alle Türchen dauerhaft im Mitgliederbereich</strong>, falls du mal einen Tag verpasst</li>
-        <li><span class="mark"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><strong>Für die Warteliste:</strong> ein Extra-Türchen am 25. Dezember</li>
       </ul>
       <p class="value-line">Allein Karussell und Reel sparen dir jede Woche Stunden. Dazu kommen 22 weitere Werkzeuge, die du behältst.</p>
       <p class="special">Weihnachtsspecial</p>
@@ -926,8 +909,8 @@
         <p>Ja. Die Claude-Desktop-App gibt es für Mac und Windows. Videos und Mails kannst du dir auch am Handy anschauen.</p>
       </details>
       <details>
-        <summary>Ich stehe auf der Warteliste. Wie bekomme ich mein Extra-Türchen?</summary>
-        <p>Kauf mit derselben E-Mail-Adresse, mit der du dich eingetragen hast. Dann kommt das Extra-Türchen am 25. Dezember automatisch zu dir.</p>
+        <summary>Ich stehe auf der Warteliste. Muss ich etwas beachten?</summary>
+        <p>Kauf bitte mit derselben E-Mail-Adresse, mit der du dich eingetragen hast. Alles Weitere bekommst du per Mail.</p>
       </details>
       <details>
         <summary>Wann geht es los?</summary>
