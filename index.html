@@ -132,9 +132,10 @@
   .hero-head { grid-area: head; }
   .hero-visual { grid-area: visual; position: relative; width: 100%; max-width: 330px; margin: 0 auto; }
   @media (min-width: 960px) {
-    .hero-grid { grid-template-columns: 1.15fr 0.85fr; grid-template-areas: "head visual"; column-gap: 56px; align-items: center; }
-    .hero-visual { max-width: 400px; margin-right: 0; }
-    .hero-grid .wk1 { grid-area: visual; align-self: end; justify-self: start; width: 330px; margin: 0 0 3% -8%; position: relative; z-index: 3; }
+    .hero-grid { grid-template-columns: 1.15fr 0.85fr; grid-template-areas: "head visual" "head wk1"; grid-template-rows: auto 1fr; column-gap: 56px; row-gap: 18px; align-items: start; }
+    .hero-visual { max-width: 330px; margin: 0 auto; }
+    .hero-grid .wk1 { grid-area: wk1; justify-self: center; width: 100%; max-width: 380px; position: relative; z-index: 3; }
+    .hero-head { align-self: start; }
   }
   .hero h1 { color: var(--choc); font-size: clamp(54px, 7.6vw, 98px); }
   .hero .acc { margin-top: 14px; text-wrap: balance; }
@@ -541,9 +542,9 @@
     <div class="wk1">
       <p class="wk1-label">Schon nach den ersten Tagen</p>
       <ul>
-        <li><svg class="i" aria-hidden="true"><use href="#i-spark" /></svg><span><b>Ab Tag 1: Karussells in Minuten,</b> die richtig gut aussehen, in deinen Farben&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></li>
-        <li><svg class="i" aria-hidden="true"><use href="#i-spark" /></svg><span><b>Ab Tag 2: Reels, die Claude für dich schneidet,</b> Pausen raus, Animationen drüber&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></li>
-        <li class="later"><svg class="i" aria-hidden="true"><use href="#i-spark" /></svg><span><b>Später zum Beispiel:</b> Belege fürs Finanzamt sortieren lassen, statt stundenlang Zettel zu wälzen&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-spark" /></svg><span><b>Ab Tag 1: Karussells in Minuten,</b> die richtig gut aussehen, in deinen <span class="nw">Farben&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></span></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-spark" /></svg><span><b>Ab Tag 2: Reels, die Claude für dich schneidet,</b> Pausen raus, Animationen <span class="nw">drüber&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></span></li>
+        <li class="later"><svg class="i" aria-hidden="true"><use href="#i-spark" /></svg><span><b>Später zum Beispiel:</b> Belege fürs Finanzamt sortieren lassen, statt stundenlang Zettel zu <span class="nw">wälzen&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></span></li>
       </ul>
       <p class="wk1-note"><svg class="i" aria-hidden="true"><use href="#i-star" /></svg>mit Claude Pro, mehr dazu weiter unten</p>
       </div>
@@ -612,12 +613,12 @@
       <li class="vs-row reveal">
         <p class="vs-before"><span class="vs-tag">Heute</span>Ein Karussell kostet dich einen halben Tag in Canva und sieht am Ende trotzdem nicht so aus, wie du es willst.</p>
         <span class="vs-arrow" aria-hidden="true"><svg class="i"><use href="#i-arrow" /></svg></span>
-        <p class="vs-after"><span class="vs-tag">Am 24. Dezember</span><span class="vs-check" aria-hidden="true"><svg class="i"><use href="#i-check" /></svg></span><span>Du gibst ein Thema ein, und Claude baut dir ein Karussell, das richtig gut aussieht, in deinen Farben.&nbsp;<svg class="i vs-star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></p>
+        <p class="vs-after"><span class="vs-tag">Am 24. Dezember</span><span class="vs-check" aria-hidden="true"><svg class="i"><use href="#i-check" /></svg></span><span>Du gibst ein Thema ein, und Claude baut dir ein Karussell, das richtig gut aussieht, in deinen <span class="nw">Farben.&nbsp;<svg class="i vs-star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></span></p>
       </li>
       <li class="vs-row reveal">
         <p class="vs-before"><span class="vs-tag">Heute</span>Dein Rohvideo liegt ungeschnitten auf dem Handy.</p>
         <span class="vs-arrow" aria-hidden="true"><svg class="i"><use href="#i-arrow" /></svg></span>
-        <p class="vs-after"><span class="vs-tag">Am 24. Dezember</span><span class="vs-check" aria-hidden="true"><svg class="i"><use href="#i-check" /></svg></span><span>Claude schneidet dein Reel: Pausen raus, Animationen drüber.&nbsp;<svg class="i vs-star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></p>
+        <p class="vs-after"><span class="vs-tag">Am 24. Dezember</span><span class="vs-check" aria-hidden="true"><svg class="i"><use href="#i-check" /></svg></span><span>Claude schneidet dein Reel: Pausen raus, Animationen <span class="nw">drüber.&nbsp;<svg class="i vs-star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></span></p>
       </li>
       <li class="vs-row reveal">
         <p class="vs-before"><span class="vs-tag">Heute</span>Deine besten Prompts verschwinden in alten Chats.</p>
@@ -682,13 +683,13 @@
     <div class="stages">
       <div class="stage reveal" style="--sc:#E9AC4C">
         <div class="stage-top"><span class="stage-n">01</span><span class="stage-days">Tag 0 bis 6</span></div>
-        <h3>Einrichten &amp; Grundlagen</h3>
-        <p>Danach kennt dich deine KI, und deine Inhalte sehen nach dir aus.</p>
+        <h3>Start mit Wow-Effekt</h3>
+        <p>Gleich am Anfang sparst du Zeit: Deine KI kennt dich, und Karussells und Reels laufen fast von selbst.</p>
         <ul class="stage-list">
           <li>Dein KI-Ordner, der dich kennt</li>
-          <li>Karussells und Reels mit Claude&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></li>
+          <li>Karussells und Reels mit <span class="nw">Claude&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></li>
           <li>Texte ohne KI-Floskeln</li>
-          <li>Dein Second Brain zum Nikolaus&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></li>
+          <li>Dein Second Brain zum <span class="nw">Nikolaus&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></li>
         </ul>
       </div>
       <div class="stage reveal" style="--sc:#FF751D">
@@ -696,20 +697,23 @@
         <h3>Clever nutzen</h3>
         <p>Danach weißt du, welches Werkzeug du wofür nimmst.</p>
         <ul class="stage-list">
-          <li>Claude arbeitet in deinem Browser mit&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></li>
+          <li>Claude arbeitet in deinem Browser <span class="nw">mit&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></li>
           <li>Das richtige Modell, damit dein Limit länger hält</li>
+          <li>Dokumente und Präsentationen in Minuten</li>
+          <li>Dein schwierigstes Kundengespräch üben</li>
           <li>Grafiken in deinen Markenfarben</li>
         </ul>
       </div>
       <div class="stage reveal" style="--sc:#FF3F63">
         <div class="stage-top"><span class="stage-n">03</span><span class="stage-days">Tag 14 bis 19</span></div>
-        <h3>Wow, das geht?!</h3>
+        <h3>Büroarbeit abgeben</h3>
         <p>Danach nimmt dir KI echte Büroarbeit ab.</p>
         <ul class="stage-list">
-          <li>Belege fürs Finanzamt sortieren&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></li>
+          <li>Dein Instagram-Profil, geprüft von der KI als Art Director</li>
+          <li>Belege fürs Finanzamt <span class="nw">sortieren&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></li>
           <li>Dein Postfach in drei Stapel</li>
           <li>Ein eigener Preisrechner als Mini-App</li>
-          <li>Deinen Rechner vom Handy steuern&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></li>
+          <li>Deinen Rechner vom Handy <span class="nw">steuern&nbsp;<svg class="i star" role="img" aria-label="mit Claude Pro"><use href="#i-star" /></svg></span></li>
         </ul>
       </div>
       <div class="stage reveal" style="--sc:#F50791">
